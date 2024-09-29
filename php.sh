@@ -1,4 +1,11 @@
-#!/bin/bash
+#!/usr/bin/env bash
+#########################################################
+# Created by jacknab for php-mpos and nomp pool...
+# This script is intended to be run on Debian 11
+# like this:
+# curl https://raw.githubusercontent.com/jacknab/scripts/main/install.sh | bash
+#
+#########################################################
 
 # Log file location
 LOG_FILE="/root/mpos_installation.log"
@@ -97,7 +104,7 @@ rm composer-setup.php
 echo "Cloning MPOS repository..."
 sudo apt-get install git -y
 cd
-cd /var/www
+cd /root/var/www
 sudo git clone https://github.com/MPOS/php-mpos.git MPOS
 cd MPOS
 sudo git checkout master
@@ -113,7 +120,7 @@ php composer.phar install
 # MPOS Database Setup
 echo "Setting up the database..."
 cd
-cd /var/www/MPOS
+cd /root/var/www/MPOS
 
 # Use the generated MySQL root password for the command
 sudo mysql -u root -p"1825Logan305!" -e "CREATE DATABASE mpos;"
