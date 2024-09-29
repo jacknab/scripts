@@ -19,6 +19,6 @@ sed -i '122s|.*|_this.daemon.cmd('\'\'getblocktemplate'\'', [{"capabilities": [ 
 sed -i '580s|.*|[{"capabilities": [ "coinbasetxn", "workid", "coinbase/append" ], "rules": [ "mweb", "segwit" ]}],|' /root/nomp/node_modules/stratum-pool/lib/pool.js
 
 echo "Replacements completed successfully!"
-
-bash /root/scripts/update_mpos_config.sh
+cd ~
+bash /scripts/update_mpos_config.sh
 
