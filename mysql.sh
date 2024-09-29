@@ -1,4 +1,11 @@
-#!/bin/bash
+#!/usr/bin/env bash
+#########################################################
+# Created by jacknab for php-mpos and nomp pool...
+# This script is intended to be run on Debian 11
+# like this:
+# curl https://raw.githubusercontent.com/jacknab/scripts/main/install.sh | bash
+#
+#########################################################
 
 # Step 1: Install required packages
 sudo apt update
@@ -46,6 +53,6 @@ rm -f mysql-apt-config_0.8.18-1_all.deb
 # Optional: Print out the generated password
 echo "MySQL root password: 1825Logan305!"
 
-cd 
-./php.sh
+cd
+bash /root/scripts/php.sh
 
