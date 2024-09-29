@@ -8,7 +8,7 @@
 #########################################################
 
 # Define the file path
-file_path="/root/var/www/MPOS/include/config/global.inc.php"
+file_path="/var/www/MPOS/include/config/global.inc.php"
 
 # Generate random strings: 27 characters and 28 characters
 random_str_27=$(cat /dev/urandom | tr -dc 'A-Z' | fold -w 27 | head -n 1)
@@ -26,4 +26,4 @@ echo "Text replacement completed!"
 echo "Random 27-character string: $random_str_27"
 echo "Random 28-character string: $random_str_28"
 
-bash /root/scripts/update_apache_conf.sh
+bash /scripts/update_apache_conf.sh
