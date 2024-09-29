@@ -1,15 +1,14 @@
 #!/usr/bin/env bash
 #########################################################
-# Source https://mailinabox.email/ https://github.com/mail-in-a-box/mailinabox
 # Updated by jacknab for php-mpos and nomp pool...
 # This script is intended to be run like this:
 #
-# curl https://raw.githubusercontent.com/jacknab/scripts/master/install.sh | bash
+# curl https://raw.githubusercontent.com/jacknab/scripts/main/install.sh | bash
 #
 #########################################################
 
 # Path to the Apache configuration file
-APACHE_CONF="/etc/apache2/sites-available/000-default.conf"
+APACHE_CONF="/root/etc/apache2/sites-available/000-default.conf"
 
 # Check if the file exists
 if [ -f "$APACHE_CONF" ]; then
@@ -24,4 +23,5 @@ else
   echo "The Apache configuration file does not exist at $APACHE_CONF."
 fi
 
-bash /root/scripts/nomp_patch.sh
+sudo systemctl restart apache2
+
