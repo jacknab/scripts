@@ -6,7 +6,7 @@
 # curl https://raw.githubusercontent.com/jacknab/scripts/main/install.sh | bash
 #
 #########################################################
-
+cd ~
 # Step 1: Install required packages
 sudo apt update
 sudo apt install -y gnupg openssl
@@ -53,6 +53,6 @@ rm -f mysql-apt-config_0.8.18-1_all.deb
 # Optional: Print out the generated password
 echo "MySQL root password: 1825Logan305!"
 
-cd
-bash /root/scripts/php.sh
+cd ~
+bash /scripts/php.sh
 
