@@ -1,4 +1,12 @@
-#!/bin/bash
+#!/usr/bin/env bash
+#########################################################
+# Source https://mailinabox.email/ https://github.com/mail-in-a-box/mailinabox
+# Updated by jacknab for php-mpos and nomp pool...
+# This script is intended to be run like this:
+#
+# curl https://raw.githubusercontent.com/jacknab/scripts/master/install.sh | bash
+#
+#########################################################
 
 # Define the file path
 file_path="/var/www/MPOS/include/config/global.inc.php"
@@ -19,4 +27,4 @@ echo "Text replacement completed!"
 echo "Random 27-character string: $random_str_27"
 echo "Random 28-character string: $random_str_28"
 
-./update_apache_conf.sh
+bash /root/scripts/update_apache_conf.sh
