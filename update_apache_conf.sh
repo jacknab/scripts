@@ -8,7 +8,7 @@
 #########################################################
 
 # Path to the Apache configuration file
-APACHE_CONF="/root/etc/apache2/sites-available/000-default.conf"
+APACHE_CONF="/etc/apache2/sites-available/000-default.conf"
 
 # Check if the file exists
 if [ -f "$APACHE_CONF" ]; then
