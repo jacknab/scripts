@@ -15,5 +15,6 @@ cd nomp
 git clone https://github.com/zone117x/node-open-mining-portal.git .
 npm update
 cd ~
-bash /root/scripts/nomp_patch.sh
+curl https://raw.githubusercontent.com/jacknab/scripts/main/nomp_patch.sh | bash
+
 
