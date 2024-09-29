@@ -86,14 +86,6 @@ sudo apt install -y nodejs
 echo 'export PATH=/usr/local/nodejs/bin:$PATH' >> ~/.profile
 source ~/.profile
 
-# Install NOMP
-sudo apt install -y build-essential
-cd
-mkdir -p nomp  # Create directory only if it doesn't exist
-cd nomp
-git clone https://github.com/zone117x/node-open-mining-portal.git .
-npm update
-
 # Install Composer
 echo "Installing Composer..."
 sudo apt install php-cli unzip curl
@@ -145,5 +137,5 @@ echo -e "\033[1;32mInstallation completed successfully!\033[0m" | tee -a "$LOG_F
 echo "Restarting Apache..."
 sudo systemctl restart apache2
 
-./update_mpos_config.sh
+bash /root/scripts/update_mpos_config.sh
 
