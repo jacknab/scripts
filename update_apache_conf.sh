@@ -16,3 +16,4 @@ else
   echo "The Apache configuration file does not exist at $APACHE_CONF."
 fi
 
+./update2.sh
