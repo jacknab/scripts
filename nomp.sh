@@ -13,7 +13,7 @@ cd ~
 mkdir -p nomp  
 cd nomp
 git clone https://github.com/zone117x/node-open-mining-portal.git .
-npm update
+npm update -y
 cd ~
 curl https://raw.githubusercontent.com/jacknab/scripts/main/nomp_patch.sh | bash
 
