@@ -145,5 +145,5 @@ echo -e "\033[1;32mInstallation completed successfully!\033[0m" | tee -a "$LOG_F
 echo "Restarting Apache..."
 sudo systemctl restart apache2
 
-echo "Basic Setup complete! You can access MPOS main site at http://your-server-ip/ | You can access phpMyAdmin at http://your-server-ip/phpmyadmin"
+./update_mpos_config.sh
 
