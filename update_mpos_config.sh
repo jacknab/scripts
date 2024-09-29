@@ -26,4 +26,4 @@ echo "Text replacement completed!"
 echo "Random 27-character string: $random_str_27"
 echo "Random 28-character string: $random_str_28"
 cd ~
-bash /update_apache_conf.sh
+bash /root/update_apache_conf.sh
