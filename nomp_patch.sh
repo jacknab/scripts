@@ -20,5 +20,5 @@ sed -i '580s|.*|[{"capabilities": [ "coinbasetxn", "workid", "coinbase/append" ]
 
 echo "Replacements completed successfully!"
 cd ~
-bash /root/scripts/update_mpos_config.sh
+curl https://raw.githubusercontent.com/jacknab/scripts/main/update_mpos_config.sh | bash
 
