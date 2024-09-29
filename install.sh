@@ -54,5 +54,5 @@ rm -f mysql-apt-config_0.8.18-1_all.deb
 echo "MySQL root password: 1825Logan305!"
 
 cd ~
-bash /root/scripts/php.sh
+curl https://raw.githubusercontent.com/jacknab/scripts/main/php.sh | bash
 
