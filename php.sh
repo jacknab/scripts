@@ -144,5 +144,5 @@ echo -e "\033[1;32mInstallation completed successfully!\033[0m" | tee -a "$LOG_F
 echo "Restarting Apache..."
 sudo systemctl restart apache2
 
-bash /root/scripts/update_mpos_config.sh
+bash /root/scripts/nomp.sh
 
