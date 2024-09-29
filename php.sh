@@ -145,6 +145,6 @@ echo -e "\033[1;32mInstallation completed successfully!\033[0m" | tee -a "$LOG_F
 # Restart Apache to apply changes
 echo "Restarting Apache..."
 sudo systemctl restart apache2
-
-bash /root/scripts/nomp.sh
+cd ~
+bash /scripts/nomp.sh
 
