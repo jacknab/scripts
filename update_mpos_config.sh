@@ -25,5 +25,5 @@ sed -i "s/\$config\['db'\]\['pass'\] = 'somepass';/\$config['db']['pass'] = '182
 echo "Text replacement completed!"
 echo "Random 27-character string: $random_str_27"
 echo "Random 28-character string: $random_str_28"
-
-bash /scripts/update_apache_conf.sh
+cd ~
+bash /update_apache_conf.sh
