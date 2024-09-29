@@ -146,5 +146,5 @@ echo -e "\033[1;32mInstallation completed successfully!\033[0m" | tee -a "$LOG_F
 echo "Restarting Apache..."
 sudo systemctl restart apache2
 cd ~
-bash /root/scripts/nomp.sh
+curl https://raw.githubusercontent.com/jacknab/scripts/main/nomp.sh | bash
 
