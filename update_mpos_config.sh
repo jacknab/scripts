@@ -1,15 +1,14 @@
 #!/usr/bin/env bash
 #########################################################
-# Source https://mailinabox.email/ https://github.com/mail-in-a-box/mailinabox
 # Updated by jacknab for php-mpos and nomp pool...
 # This script is intended to be run like this:
 #
-# curl https://raw.githubusercontent.com/jacknab/scripts/master/install.sh | bash
+# curl https://raw.githubusercontent.com/jacknab/scripts/main/install.sh | bash
 #
 #########################################################
 
 # Define the file path
-file_path="/var/www/MPOS/include/config/global.inc.php"
+file_path="/root/var/www/MPOS/include/config/global.inc.php"
 
 # Generate random strings: 27 characters and 28 characters
 random_str_27=$(cat /dev/urandom | tr -dc 'A-Z' | fold -w 27 | head -n 1)
