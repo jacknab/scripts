@@ -103,7 +103,7 @@ rm composer-setup.php
 # Clone MPOS Repository
 echo "Cloning MPOS repository..."
 sudo apt-get install git -y
-cd
+cd ~
 cd /var/www
 sudo git clone https://github.com/MPOS/php-mpos.git MPOS
 cd MPOS
@@ -115,11 +115,13 @@ sudo systemctl restart apache2
 
 # Install MPOS dependencies using Composer
 echo "Installing MPOS dependencies..."
+cd ~
+cd /var/www/MPOS
 php composer.phar install
 
 # MPOS Database Setup
 echo "Setting up the database..."
-cd
+cd ~
 cd /var/www/MPOS
 
 # Use the generated MySQL root password for the command
