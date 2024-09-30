@@ -1,0 +1,12 @@
+!user
+
+git clone https://github.com/jacknab/MundoTeam_Core.git
+cd /root/MundoTeam_Core
+chmod +x autogen.sh
+cd share
+chmod +x genbuild.sh
+cd ..
+./autogen.sh
+./configure CXX=clang++ CC=clang --with-incompatible-bdb
+make
+
