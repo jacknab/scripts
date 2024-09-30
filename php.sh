@@ -74,8 +74,8 @@ sudo apt-mark hold php7.4 php7.4-*
 
 # Step 3: Install Python 2.7
 echo "Installing Python 2.7..."
-sudo apt install -y python2.7
-sudo apt-mark hold python2.7
+sudo apt install python2
+sudo apt-mark hold python2.7.18
 
 # Set phpMyAdmin selections using the retrieved MySQL root password
 echo "phpmyadmin phpmyadmin/dbconfig-install boolean true" | sudo debconf-set-selections
