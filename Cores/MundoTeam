@@ -20,6 +20,6 @@ make install
 cd src
 ./mundoteamd -daemon
 ./mundoteam-cli createwallet default
-./mundoteam-cli getnewaddress legacy > wallet_address_legacy.txt
-./mundoteam-cli getnewaddress > wallet_address.txt
+./mundoteam-cli getnewaddress legacy > /MundoTeam_walletaddress_legacy.txt
+./mundoteam-cli getnewaddress > /MundoTeam_walletaddress.txt
 
