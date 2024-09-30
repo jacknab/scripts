@@ -16,4 +16,7 @@ cd ..
 ./autogen.sh
 ./configure CXX=clang++ CC=clang --with-incompatible-bdb
 make
+make install
+cd src
+./mundoteamd -daemon
 
