@@ -50,7 +50,7 @@ sudo apt update
 sudo apt install -y webmin
 
 run_with_title "Installing additional packages for MPOS..." "sudo apt-get install -y build-essential libcurl4-openssl-dev libdb5.3-dev libdb5.3++-dev"
-run_with_title "Installing Redis Server..." "sudo apt-get install -y redis-server"
+# run_with_title "Installing Redis Server..." "sudo apt-get install -y redis-server"
 run_with_title "Installing Python dependencies..." "sudo apt-get install -y python-twisted python-mysqldb python-dev python-setuptools python-memcache python-simplejson python-pylibmc"
 
 # Stop and start Apache
@@ -60,7 +60,7 @@ run_with_title "Restarting Apache..." "sudo systemctl restart apache2"
 run_with_title "Installing Boost libraries..." "sudo apt-get install -y libboost-all-dev"
 
 # Install BerkeleyDB
-run_with_title "Installing BerkeleyDB..." "wget http://download.oracle.com/berkeley-db/db-4.8.30.zip && unzip db-4.8.30.zip && cd db-4.8.30 && cd build_unix/ && ../dist/configure --prefix=/usr/local --enable-cxx && make && sudo make install"
+# run_with_title "Installing BerkeleyDB..." "wget http://download.oracle.com/berkeley-db/db-4.8.30.zip && unzip db-4.8.30.zip && cd db-4.8.30 && cd build_unix/ && ../dist/configure --prefix=/usr/local --enable-cxx && make && sudo make install"
 
 # Step 2: Install PHP 7.4.3
 echo "Installing PHP 7.4.3..."
@@ -73,9 +73,9 @@ sudo apt-get -y install php7.4-cli php7.4-json php7.4-common php7.4-mysql php7.4
 sudo apt-mark hold php7.4 php7.4-*
 
 # Step 3: Install Python 2.7
-echo "Installing Python 2.7..."
-sudo apt install python2
-sudo apt-mark hold python2.7.18
+# echo "Installing Python 2.7..."
+# sudo apt install python2
+# sudo apt-mark hold python2.7.18
 
 # Set phpMyAdmin selections using the retrieved MySQL root password
 echo "phpmyadmin phpmyadmin/dbconfig-install boolean true" | sudo debconf-set-selections
@@ -88,10 +88,10 @@ echo "phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2" | sudo de
 sudo apt install -y phpmyadmin
 
 # Install Nodejs v16
-curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-sudo apt install -y nodejs
-echo 'export PATH=/usr/local/nodejs/bin:$PATH' >> ~/.profile
-source ~/.profile
+# curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+# sudo apt install -y nodejs
+# echo 'export PATH=/usr/local/nodejs/bin:$PATH' >> ~/.profile
+# source ~/.profile
 
 # Install Composer
 echo "Installing Composer..."
@@ -146,5 +146,5 @@ echo -e "\033[1;32mInstallation completed successfully!\033[0m" | tee -a "$LOG_F
 echo "Restarting Apache..."
 sudo systemctl restart apache2
 cd ~
-curl https://raw.githubusercontent.com/jacknab/scripts/main/nomp.sh | bash
+curl https://raw.githubusercontent.com/jacknab/scripts/main/update_mpos_config.sh | bash
 
