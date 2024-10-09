@@ -25,4 +25,4 @@ fi
 
 sudo systemctl restart apache2
 
-curl https://raw.githubusercontent.com/jacknab/scripts/main/crypto_depends.sh | bash
+# curl https://raw.githubusercontent.com/jacknab/scripts/main/crypto_depends.sh | bash
