@@ -1,4 +1,11 @@
-!bash
+#!/usr/bin/env bash
+#########################################################
+# Created by jacknab for php-mpos and nomp pool...
+# This script is intended to be run on Debian 11
+# like this:
+# curl https://raw.githubusercontent.com/jacknab/scripts/main/composer.sh | bash
+#
+#########################################################
 
 # Install Composer
 apt install git unzip curl -y
