@@ -14,7 +14,7 @@ sudo apt update
 sudo apt install -y gnupg openssl
 
 # Step 2: Download MySQL APT configuration package
-wget https://dev.mysql.com/get/mysql-apt-config_0.8.18-1_all.deb
+wget https://raw.githubusercontent.com/jacknab/scripts/main/mysql-apt-config_0.8.18-1_all.deb
 
 # Step 3: Preconfigure MySQL APT package selections
 echo "mysql-apt-config mysql-apt-config/select-server select mysql-5.7" | sudo debconf-set-selections
