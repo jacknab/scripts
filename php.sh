@@ -93,7 +93,11 @@ sudo pip install -y pylibmc
 
 # Python dependencies
 sudo apt-get -y install python-twisted python-mysqldb python-dev python-setuptools python-memcache python-simplejson
-
+sudo pip2 install twisted
+sudo pip2 install python-mysqldb
+sudo pip2 install python-mysqldb
+sudo pip2 install python-setuptools
+sudo pip2 install python-simplejson
 
 # Set phpMyAdmin selections using the retrieved MySQL root password
 echo "phpmyadmin phpmyadmin/dbconfig-install boolean true" | sudo debconf-set-selections
