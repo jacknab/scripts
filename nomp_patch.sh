@@ -6,7 +6,7 @@
 # curl https://raw.githubusercontent.com/jacknab/scripts/main/install.sh | bash
 # This is for scrypt algo for NOMP
 #########################################################
-
+set -x
 # File paths and URLs
 A_PATH="/root/nomp/libs/profitSwitch.js"
 A1_URL="https://raw.githubusercontent.com/jacknab/scripts/main/profitSwitch.js"
