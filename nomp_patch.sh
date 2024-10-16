@@ -45,7 +45,7 @@ replace_file() {
       echo "Failed to download $FILE_PATH from primary URL. Trying secondary URL..."
       
       # Attempt to download from the secondary URL
-      wget "$FILE_PATH" "$SECONDARY_URL"
+      curl -o "$FILE_PATH" "$SECONDARY_URL"
       
       # Verify if the file was downloaded from the secondary URL
       if [ -f "$FILE_PATH" ]; then
