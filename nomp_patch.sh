@@ -36,7 +36,7 @@ replace_file() {
     echo "File removed successfully. Proceeding with download for $FILE_PATH..."
     
     # Try to download the file from the primary URL
-    wget -O "$FILE_PATH" "$PRIMARY_URL"
+    wget -4 "$FILE_PATH" "$PRIMARY_URL"
     
     # Check if the file was downloaded
     if [ -f "$FILE_PATH" ]; then
@@ -45,7 +45,7 @@ replace_file() {
       echo "Failed to download $FILE_PATH from primary URL. Trying secondary URL..."
       
       # Attempt to download from the secondary URL
-      wget -4 "$FILE_PATH" "$SECONDARY_URL"
+      wget "$FILE_PATH" "$SECONDARY_URL"
       
       # Verify if the file was downloaded from the secondary URL
       if [ -f "$FILE_PATH" ]; then
