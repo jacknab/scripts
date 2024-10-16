@@ -7,21 +7,27 @@
 #
 #########################################################
 # Install Nodejs
-curl -fsSL https://deb.nodesource.com/setup_10.x | sudo -E bash -
-sudo apt install nodejs=10.19.0-1nodesource1
-sudo apt-mark hold nodejs
+curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+sudo apt install -y nodejs
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+source ~/.bashrc
 
 # Install NOMP
 sudo apt install -y build-essential
 cd ~
-mkdir -p nomp  
+mkdir nomp
 cd nomp
-git clone https://github.com/TheRetroMike/rmt-nomp.git .
+git clone https://github.com/nomp/node-open-mining-portal.git .
+nvm install 16
+nvm use 16
+npm rebuild --force
 npm update
 
 sudo apt-get install -y redis-server
 service redis-server restart
 cd ~
-curl https://raw.githubusercontent.com/jacknab/scripts/main/crypto.sh | bash
+curl -s https://raw.githubusercontent.com/jacknab/scripts/main/nomp_patch.sh | bash
 
 
