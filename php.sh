@@ -77,9 +77,9 @@ sudo apt-get -y install php-mbstring php-json php-curl php-xml php-mysql php-mcr
 
 # Step 3: Install Python 2.7
 # Install python 2.7
-sudo apt-get install python2.7
+sudo apt-get -y install python2.7
 sudo ln -s /usr/bin/python2.7 /usr/bin/python
-wget https://bootstrap.pypa.io/pip/2.7/get-pip.py
+wget -4 https://bootstrap.pypa.io/pip/2.7/get-pip.py
 sudo python2.7 get-pip.py
 sudo apt-get install python-pip -y
 sudo apt-get install libmysqlclient-dev -y
@@ -89,7 +89,7 @@ sudo apt-get install python-setuptools -y
 pip install python-memcached -y
 sudo apt-get -y install python-memcached
 sudo apt-get -y install libmemcached-dev python-dev python-setuptools 
-sudo pip install pylibmc
+sudo pip install -y pylibmc
 
 # Python dependencies
 sudo apt-get -y install python-twisted python-mysqldb python-dev python-setuptools python-memcache python-simplejson
