@@ -9,10 +9,10 @@
 set -x
 cd /root/nomp/libs
 sudo rm profitSwitch.js
-wget https://raw.githubusercontent.com/jacknab/scripts/main/profitSwitch.js
+wget -4 https://raw.githubusercontent.com/jacknab/scripts/main/profitSwitch.js
 cd /root/nomp/node_modules/stratum-pool/lib
 sudo rm pool.js
-wget https://raw.githubusercontent.com/jacknab/scripts/main/pool.js
+wget -4 https://raw.githubusercontent.com/jacknab/scripts/main/pool.js
 cd ~
 echo "Replacements completed successfully!"
 
