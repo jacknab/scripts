@@ -119,6 +119,11 @@ sudo apt install php-cli unzip curl -y
 curl -sS https://getcomposer.org/installer -o composer-setup.php
 sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 rm composer-setup.php
+composer self-update
+composer config --global --list
+sudo systemctl restart apache2
+composer update
+
 
 # Clone MPOS Repository
 echo "Cloning MPOS repository..."
