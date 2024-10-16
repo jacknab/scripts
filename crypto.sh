@@ -26,17 +26,18 @@ sudo apt install libfmt-dev
 sudo apt remove libdb-dev libdb++-dev -y
 
 # Download and install Berkeley DB 4.8:
-# wget http://download.oracle.com/berkeley-db/db-4.8.30.NC.tar.gz
-# tar -xvf db-4.8.30.NC.tar.gz
-# cd db-4.8.30.NC/build_unix
-# ../dist/configure --enable-cxx --disable-shared --with-pic --prefix=/usr/local
-# make
-# sudo make install
+wget http://download.oracle.com/berkeley-db/db-4.8.30.NC.tar.gz
+tar -xvf db-4.8.30.NC.tar.gz
+cd db-4.8.30.NC/build_unix
+../dist/configure --enable-cxx --disable-shared --with-pic --prefix=/usr/local
+make
+sudo make install
 
-# Ensure the compiler knows about the Berkeley DB path:
-# export BDB_INCLUDE_PATH="/usr/local/include"
-# export BDB_LIB_PATH="/usr/local/lib"
+Ensure the compiler knows about the Berkeley DB path:
+export BDB_INCLUDE_PATH="/usr/local/include"
+export BDB_LIB_PATH="/usr/local/lib"
 
 # Install Other Libraries (for GUI)
 sudo apt install qtbase5-dev qttools5-dev-tools libqrencode-dev qttools5-dev libprotobuf-dev
-
+cd ~
+#curl https://raw.githubusercontent.com/jacknab/scripts/main/mundoteam.sh | bash
