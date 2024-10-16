@@ -9,8 +9,6 @@
 # Install Nodejs
 curl -fsSL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 sudo apt install nodejs=10.19.0-1nodesource1
-sudo apt install nodejs
-sudo apt install nodejs=10.19.0-1nodesource1
 sudo apt-mark hold nodejs
 
 # Install NOMP
