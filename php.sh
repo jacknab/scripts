@@ -118,7 +118,7 @@ rm composer-setup.php
 
 # Clone MPOS Repository
 echo "Cloning MPOS repository..."
-sudo apt-get install git -y
+sudo apt install git -y
 cd ~
 cd /var/www
 sudo git clone https://github.com/MPOS/php-mpos.git MPOS
