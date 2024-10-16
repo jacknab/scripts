@@ -6,9 +6,10 @@
 # curl https://raw.githubusercontent.com/jacknab/scripts/main/install.sh | bash
 #
 #########################################################
+apt install sudo -y
+
 cd ~
 # Step 1: Install required packages
-apt install sudo -y
 sudo apt update
 sudo apt install -y gnupg openssl
 
