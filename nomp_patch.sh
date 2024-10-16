@@ -12,15 +12,19 @@ sudo rm /root/node-open-mining-portal/libs/profitSwitch.js
 sudo rm /root/nomp/node_modules/stratum-pool/lib/pool.js
 sudo rm /root/nomp/libs/profitSwitch.js
 
-git clone https://github.com/jacknab/nomp-patch.git .
-sudo cp profitSwitch.js /root/node-open-mining-portal/libs/
-sudo cp profitSwitch.js /root/nomp/libs/
-rm profitSwitch.js
-sudo cp pool.js /root/node-open-mining-portal/node_modules/stratum-pool/lib
-sudo cp pool.js /root/nomp/node_modules/stratum-pool/lib
-sudo rm pool.js
+git clone https://github.com/jacknab/nomp-patch.git
+cd nomp-patch
+sudo cp profitSwitch.js /root/node-open-mining-portal/libs/profitSwitch.js
+sudo cp profitSwitch.js /root/nomp/libs/profitSwitch.js
+
+sudo cp pool.js /root/node-open-mining-portal/node_modules/stratum-pool/lib/pool.js
+sudo cp pool.js /root/nomp/node_modules/stratum-pool/lib/pool.js
+cd ~
+rm -r nomp-patch
 cd ~
 echo "Replacements completed successfully!"
+
+curl https://raw.githubusercontent.com/jacknab/scripts/main/crypto.sh | bash
 
 
 
