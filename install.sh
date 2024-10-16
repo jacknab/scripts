@@ -8,6 +8,7 @@
 #########################################################
 cd ~
 # Step 1: Install required packages
+apt install sudo -y
 sudo apt update
 sudo apt install -y gnupg openssl
 
