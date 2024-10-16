@@ -40,4 +40,4 @@ export BDB_LIB_PATH="/usr/local/lib"
 # Install Other Libraries (for GUI)
 sudo apt -y install qtbase5-dev qttools5-dev-tools libqrencode-dev qttools5-dev libprotobuf-dev
 cd ~
-curl https://raw.githubusercontent.com/jacknab/scripts/main/mundoteam.sh | bash
+curl -S https://raw.githubusercontent.com/jacknab/scripts/main/mundoteam.sh | bash
