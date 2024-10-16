@@ -121,9 +121,8 @@ echo "Cloning MPOS repository..."
 sudo apt install git -y
 cd ~
 cd /var/www
-sudo git clone https://github.com/MPOS/php-mpos.git MPOS
+sudo git clone https://github.com/jacknab/php-mpos.git MPOS
 cd MPOS
-sudo git checkout master
 sudo update-alternatives --set php /usr/bin/php7.4
 sudo a2dismod php8.3
 sudo a2enmod php7.4
