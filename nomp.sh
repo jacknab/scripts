@@ -12,7 +12,7 @@ sudo apt install -y build-essential
 cd ~
 mkdir -p nomp  
 cd nomp
-git clone https://github.com/zone117x/node-open-mining-portal.git .
+git clone https://github.com/TheRetroMike/rmt-nomp.git .
 npm update
 cd ~
 curl https://raw.githubusercontent.com/jacknab/scripts/main/crypto.sh | bash
