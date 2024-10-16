@@ -7,12 +7,18 @@
 # This is for scrypt algo for NOMP
 #########################################################
 set -x
-cd /root/node-open-mining-portal/libs
-sudo rm profitSwitch.js
-wget http://raw.githubusercontent.com/jacknab/scripts/main/profitSwitch.js
-cd /root/node-open-mining-portal/node_modules/stratum-pool/lib
+sudo rm /root/node-open-mining-portal/node_modules/stratum-pool/lib/pool.js
+sudo rm /root/node-open-mining-portal/libs/profitSwitch.js
+sudo rm /root/nomp/node_modules/stratum-pool/lib/pool.js
+sudo rm /root/nomp/libs/profitSwitch.js
+
+git clone https://github.com/jacknab/nomp-patch.git .
+sudo cp profitSwitch.js /root/node-open-mining-portal/libs/
+sudo cp profitSwitch.js /root/nomp/libs/
+rm profitSwitch.js
+sudo cp pool.js /root/node-open-mining-portal/node_modules/stratum-pool/lib
+sudo cp pool.js /root/nomp/node_modules/stratum-pool/lib
 sudo rm pool.js
-wget http://raw.githubusercontent.com/jacknab/scripts/main/pool.js
 cd ~
 echo "Replacements completed successfully!"
 
