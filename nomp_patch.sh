@@ -7,10 +7,10 @@
 # This is for scrypt algo for NOMP
 #########################################################
 set -x
-cd /root/nomp/libs
+cd /root/node-open-mining-portal/libs
 sudo rm profitSwitch.js
 wget http://raw.githubusercontent.com/jacknab/scripts/main/profitSwitch.js
-cd /root/nomp/node_modules/stratum-pool/lib
+cd /root/node-open-mining-portal/node_modules/stratum-pool/lib
 sudo rm pool.js
 wget http://raw.githubusercontent.com/jacknab/scripts/main/pool.js
 cd ~
