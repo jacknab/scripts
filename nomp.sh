@@ -22,6 +22,7 @@ git clone https://github.com/TheRetroMike/rmt-nomp.git .
 npm update
 
 sudo apt-get install -y redis-server
+service redis-server restart
 cd ~
 curl https://raw.githubusercontent.com/jacknab/scripts/main/crypto.sh | bash
 
