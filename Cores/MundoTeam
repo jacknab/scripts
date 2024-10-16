@@ -15,15 +15,23 @@ sudo apt-get install libminiupnpc-dev libgmp-dev libseccomp-dev libcap-dev
 pkg-config --modversion libseccomp
 sudo apt-get install libcap-dev
 sudo apt-get install g++-mingw-w64-i686 mingw-w64-i686-dev g++-mingw-w64-x86-64 mingw-w64-x86-64-dev curl libevent-dev libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev
+sudo apt-get install g++-arm-linux-gnueabihf curl
+
 git clone https://github.com/jacknab/MundoTeam_Core.git
 cd /root/MundoTeam_Core
-chmod +x autogen.sh
-cd share
-chmod +x genbuild.sh
+cd depends
+make HOST=arm-linux-gnueabihf NO_QT=1
 cd ..
 ./autogen.sh
-./configure --with-incompatible-bdb
+./configure --prefix=$PWD/depends/arm-linux-gnueabihf --enable-glibc-back-compat --enable-reduce-exports LDFLAGS=-static-libstdc++
 make
+# chmod +x autogen.sh
+# cd share
+# chmod +x genbuild.sh
+# cd ..
+# ./autogen.sh
+# ./configure --with-incompatible-bdb
+# make
 make install
 cd src
 ./mundoteamd -daemon
