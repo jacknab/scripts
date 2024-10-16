@@ -6,6 +6,12 @@
 # curl https://raw.githubusercontent.com/jacknab/scripts/main/install.sh | bash
 #
 #########################################################
+# Install Nodejs
+curl -fsSL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+sudo apt install nodejs=10.19.0-1nodesource1
+sudo apt install nodejs
+sudo apt install nodejs=10.19.0-1nodesource1
+sudo apt-mark hold nodejs
 
 # Install NOMP
 sudo apt install -y build-essential
@@ -14,6 +20,8 @@ mkdir -p nomp
 cd nomp
 git clone https://github.com/TheRetroMike/rmt-nomp.git .
 npm update
+
+sudo apt-get install -y redis-server
 cd ~
 curl https://raw.githubusercontent.com/jacknab/scripts/main/crypto.sh | bash
 
