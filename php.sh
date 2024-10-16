@@ -70,12 +70,31 @@ sudo apt update
 sudo apt -y install php7.4
 sudo apt -y install memcached php7.4-memcached php7.4-mysql php7.4-cli php7.4-curl php7.4-mbstring php7.4-xml php7.4-zip php7.4-gd php7.4-json libapache2-mod-php7.4 curl
 sudo apt-get -y install php7.4-cli php7.4-json php7.4-common php7.4-mysql php7.4-zip php7.4-gd php7.4-mbstring php7.4-curl php7.4-xml php7.4-bcmath
-sudo apt-mark hold php7.4 php7.4-*
+# php7.4 version
+sudo apt-get install php7.4-mbstring php7.4-xml
+sudo apt-get install php-mbstring php-xml php-mysql php-json php-curl php-zip
+# common PHP extensions
+sudo apt-get install php-mbstring php-json php-curl php-xml php-mysql php-mcrypt php-zip
 
 # Step 3: Install Python 2.7
-# echo "Installing Python 2.7..."
-# sudo apt install python2
-# sudo apt-mark hold python2.7.18
+# Install python 2.7
+sudo apt-get install python2.7
+sudo ln -s /usr/bin/python2.7 /usr/bin/python
+wget https://bootstrap.pypa.io/pip/2.7/get-pip.py
+sudo python2.7 get-pip.py
+sudo apt-get install python-pip
+sudo apt-get install libmysqlclient-dev
+sudo apt-get install python2-dev
+sudo apt-get install python2.7-dev build-essential
+sudo apt-get install python-setuptools
+pip install python-memcached
+sudo apt-get install python-memcached
+sudo apt-get install libmemcached-dev python-dev python-setuptools
+sudo pip install pylibmc
+
+# Python dependencies
+sudo apt-get install python-twisted python-mysqldb python-dev python-setuptools python-memcache python-simplejson
+
 
 # Set phpMyAdmin selections using the retrieved MySQL root password
 echo "phpmyadmin phpmyadmin/dbconfig-install boolean true" | sudo debconf-set-selections
@@ -88,10 +107,10 @@ echo "phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2" | sudo de
 sudo apt install -y phpmyadmin
 
 # Install Nodejs v16
-# curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-# sudo apt install -y nodejs
-# echo 'export PATH=/usr/local/nodejs/bin:$PATH' >> ~/.profile
-# source ~/.profile
+curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+sudo apt install -y nodejs
+echo 'export PATH=/usr/local/nodejs/bin:$PATH' >> ~/.profile
+source ~/.profile
 
 # Install Composer
 echo "Installing Composer..."
