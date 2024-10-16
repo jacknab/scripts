@@ -50,7 +50,6 @@ sudo apt update
 sudo apt install -y webmin
 
 run_with_title "Installing additional packages for MPOS..." "sudo apt-get install -y build-essential libcurl4-openssl-dev libdb5.3-dev libdb5.3++-dev"
-# run_with_title "Installing Redis Server..." "sudo apt-get install -y redis-server"
 run_with_title "Installing Python dependencies..." "sudo apt-get install -y python-twisted python-mysqldb python-dev python-setuptools python-memcache python-simplejson python-pylibmc"
 
 # Stop and start Apache
