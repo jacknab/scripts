@@ -6,7 +6,7 @@
 # curl https://raw.githubusercontent.com/jacknab/scripts/main/install.sh | bash
 #
 #########################################################
-apt install sudo -y
+apt install sudo wget -y
 
 cd ~
 # Step 1: Install required packages
