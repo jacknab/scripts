@@ -43,11 +43,11 @@ sudo apt install -y lsb-release ca-certificates apt-transport-https
 sudo apt instal -y git curl zip wget
 
 # Step 1: Install Webmin (commented out)
-echo "Installing Webmin..."
-echo "deb http://download.webmin.com/download/repository sarge contrib" | sudo tee /etc/apt/sources.list.d/webmin.list
-wget -qO - http://www.webmin.com/jcameron-key.asc | sudo apt-key add -
-sudo apt update
-sudo apt install -y webmin
+# echo "Installing Webmin..."
+# echo "deb http://download.webmin.com/download/repository sarge contrib" | sudo tee /etc/apt/sources.list.d/webmin.list
+# wget -qO - http://www.webmin.com/jcameron-key.asc | sudo apt-key add -
+# sudo apt update
+# sudo apt install -y webmin
 
 run_with_title "Installing additional packages for MPOS..." "sudo apt-get install -y build-essential libcurl4-openssl-dev libdb5.3-dev libdb5.3++-dev"
 run_with_title "Installing Python dependencies..." "sudo apt-get install -y python-twisted python-mysqldb python-dev python-setuptools python-memcache python-simplejson python-pylibmc"
