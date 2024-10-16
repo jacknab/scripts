@@ -91,15 +91,17 @@ sudo apt-get install python-memcached
 sudo apt-get install libmemcached-dev 
 sudo apt-get install python-dev 
 sudo apt-get install python-setuptools 
-sudo pip install pylibmc
+pip2 install pylibmc
 
 # Python dependencies
 sudo apt-get -y install python-twisted python-mysqldb python-dev python-setuptools python-memcache python-simplejson
-sudo pip2 install twisted
-sudo pip2 install python-mysqldb
-sudo pip2 install python-mysqldb
-sudo pip2 install python-setuptools
-sudo pip2 install python-simplejson
+pip install twisted
+pip install python-mysqldb
+pip install MySQL-python
+pip install python-setuptools
+pip install python-simplejson
+pip2 install setuptools
+
 
 # Set phpMyAdmin selections using the retrieved MySQL root password
 echo "phpmyadmin phpmyadmin/dbconfig-install boolean true" | sudo debconf-set-selections
