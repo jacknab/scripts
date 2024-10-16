@@ -106,12 +106,6 @@ echo "phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2" | sudo de
 # Install phpMyAdmin without prompts
 sudo apt install -y phpmyadmin
 
-# Install Nodejs v16
-curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-sudo apt install -y nodejs
-echo 'export PATH=/usr/local/nodejs/bin:$PATH' >> ~/.profile
-source ~/.profile
-
 # Install Composer
 echo "Installing Composer..."
 sudo apt install php-cli unzip curl -y
