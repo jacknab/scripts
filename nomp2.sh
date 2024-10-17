@@ -16,7 +16,7 @@ sudo rm -rf /usr/local/node-v0.10.48
 sudo rm /usr/bin/node
 sudo rm /usr/bin/npm
 
-wget -4 https://nodejs.org/dist/v0.10.48/node-v0.10.48-linux-x64.tar.gz
+wget http://nodejs.org/dist/v0.10.48/node-v0.10.48-linux-x64.tar.gz
 tar -xzf node-v0.10.48-linux-x64.tar.gz
 sudo mv node-v0.10.48-linux-x64 /usr/local/node-v0.10.48
 sudo ln -s /usr/local/node-v0.10.48/bin/node /usr/bin/node
