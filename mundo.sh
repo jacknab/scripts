@@ -2,9 +2,13 @@
 set -x
 sudo apt-get update -y
 sudo apt-get -y install build-essential libtool autoconf automake pkg-config 
-sudo apt-get -y install libssl-dev libboost-all-dev libdb++-dev libminiupnpc-dev libgmp-dev
-sudo apt-get -y install libseccomp-dev
-sudo apt-get update -y
+sudo apt-get install libssl-dev 
+sudo apt-get install libboost-all-dev 
+sudo apt-get install libdb++-dev 
+sudo apt-get install libminiupnpc-dev 
+sudo apt-get install libgmp-dev
+sudo apt-get install libseccomp-dev
+sudo apt-get update
 sudo apt-get -y install build-essential libtool autotools-dev automake pkg-config libssl-dev libboost-all-dev libevent-dev
 sudo apt-get -y install libminiupnpc-dev libgmp-dev libseccomp-dev libcap-dev
 pkg-config --modversion libseccomp
