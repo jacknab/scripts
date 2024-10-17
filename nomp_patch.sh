@@ -24,7 +24,7 @@ rm -r nomp-patch
 cd ~
 echo "Replacements completed successfully!"
 
-curl https://raw.githubusercontent.com/jacknab/scripts/main/crypto.sh | bash
+# curl https://raw.githubusercontent.com/jacknab/scripts/main/crypto.sh | bash
 
 
 
