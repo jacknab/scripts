@@ -6,6 +6,7 @@
 # curl https://raw.githubusercontent.com/jacknab/scripts/main/install.sh | bash
 #
 #########################################################
+set -x
 sudo apt remove nodejs npm
 sudo apt purge nodejs npm
 sudo apt autoremove
