@@ -7,8 +7,8 @@
 #
 #########################################################
 set -x
-sudo apt remove nodejs npm
-sudo apt purge nodejs npm
+sudo apt remove nodejs npm -y
+sudo apt purge nodejs npm -y
 sudo apt autoremove
 sudo rm -rf /usr/local/node-v0.10.48
 sudo rm /usr/bin/node
