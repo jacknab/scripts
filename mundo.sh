@@ -1,3 +1,12 @@
+#!/usr/bin/env bash
+#########################################################
+# Created by jacknab for php-mpos and nomp pool...
+# This script is intended to be run on Debian 11
+# like this:
+# curl https://raw.githubusercontent.com/jacknab/scripts/main/install.sh | bash
+#
+#########################################################
+
 sudo apt-get update
 sudo apt-get install build-essential libtool autoconf automake pkg-config libssl-dev libboost-all-dev libdb++-dev libminiupnpc-dev libgmp-dev
 sudo apt-get install libseccomp-dev
