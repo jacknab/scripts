@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 set -x
 sudo apt-get update -y
-sudo apt-get -y install build-essential libtool autoconf automake pkg-config libssl-dev libboost-all-dev libdb++-dev libminiupnpc-dev libgmp-dev
+sudo apt-get -y install build-essential libtool autoconf automake pkg-config 
+sudo apt-get -y install libssl-dev libboost-all-dev libdb++-dev libminiupnpc-dev libgmp-dev
 sudo apt-get -y install libseccomp-dev
 sudo apt-get update -y
 sudo apt-get -y install build-essential libtool autotools-dev automake pkg-config libssl-dev libboost-all-dev libevent-dev
