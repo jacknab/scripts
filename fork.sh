@@ -1,8 +1,20 @@
 #!/usr/bin/env bash
 set -x
 
-sudo apt-get -y install build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils
-sudo apt-get -y install libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev
+sudo apt-get install build-essential 
+sudo apt-get install libtool 
+sudo apt-get install autotools-dev 
+sudo apt-get install automake 
+sudo apt-get install pkg-config 
+sudo apt-get install libssl-dev 
+sudo apt-get install libevent-dev 
+sudo apt-get installbsdmainutils
+sudo apt-get install libboost-system-dev 
+sudo apt-get install libboost-filesystem-dev 
+sudo apt-get install libboost-chrono-dev 
+sudo apt-get install libboost-program-options-dev 
+sudo apt-get install libboost-test-dev 
+sudo apt-get install libboost-thread-dev
 sudo apt-get install libminiupnpc-dev
 sudo apt-get install libzmq3-dev
 
