@@ -41,7 +41,7 @@ sudo apt-get install -y \
 
 # Install pip2
 echo "Installing pip2..."
-wget -4 https://bootstrap.pypa.io/pip/2.7/get-pip.py
+wget https://bootstrap.pypa.io/pip/2.7/get-pip.py
 python2 get-pip.py
 
 # Remove existing litecoin directory if it exists
@@ -61,7 +61,7 @@ chmod +x autogen.sh share/genbuild.sh
 
 # Download and run genesis.py
 echo "Downloading genesis.py..."
-wget -4 https://raw.githubusercontent.com/lhartikk/GenesisH0/master/genesis.py
+wget https://raw.githubusercontent.com/lhartikk/GenesisH0/master/genesis.py
 chmod +x genesis.py
 
 # Generate genesis block hash and Merkle root
