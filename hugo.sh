@@ -52,7 +52,7 @@ fi
 
 # Clone the Hugocoin repository (using the 0.18 branch)
 echo "Cloning Hugocoin repository..."
-git clone -b 0.21 http://github.com/litecoin-project/litecoin.git
+git clone -b 0.18 http://github.com/litecoin-project/litecoin.git
 cd litecoin || exit
 
 # Make autogen.sh and genbuild.sh executable
