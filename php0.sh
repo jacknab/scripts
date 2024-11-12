@@ -81,7 +81,7 @@ sudo systemctl restart apache2
 composer update
 
 # Clone MPOS Repository
-sudo apt install git -y
+sudo apt -y install git
 cd ~
 cd /var/www
 sudo git clone https://github.com/jacknab/php-mpos.git MPOS
@@ -120,5 +120,5 @@ echo "Restarting Apache..."
 sudo systemctl restart apache2
 
 cd ~
-# curl https://raw.githubusercontent.com/jacknab/scripts/main/nomp.sh | bash
+curl https://raw.githubusercontent.com/jacknab/scripts/main/nomp.sh | bash
 
