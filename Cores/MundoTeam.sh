@@ -22,7 +22,7 @@ sudo apt-get install libssl-dev libevent-dev libboost-all-dev
 sudo apt-get install libtool autoconf pkg-config
 
 git clone https://github.com/Mundoteam/MundoTeam_Core.git
-cd /root/MundoTeam_Core
+cd MundoTeam_Core
 cd depends
 chmod +x config.guess config.sub
 sudo make HOST=arm-linux-gnueabihf NO_QT=1
