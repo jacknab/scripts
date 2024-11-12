@@ -8,7 +8,7 @@
 #########################################################
 
 git clone https://github.com/jacknab/MundoTeam_Core.git
-cd /root/MundoTeam_Core
+cd MundoTeam_Core
 chmod +x autogen.sh
 cd share
 chmod +x genbuild.sh
