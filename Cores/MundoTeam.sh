@@ -21,11 +21,15 @@ sudo apt install gcc-arm-linux-gnueabihf
 sudo apt-get install libssl-dev libevent-dev libboost-all-dev
 sudo apt-get install libtool autoconf pkg-config
 
-git clone https://github.com/Mundoteam/MundoTeam_Core.git
+git clone https://github.com/jacknab/MundoTeam_Core.git
 cd MundoTeam_Core
 cd depends
 chmod +x config.guess config.sub
 sudo make HOST=arm-linux-gnueabihf NO_QT=1
+cd ..
+chmod +x autogen.sh
+cd share
+chmod +x genbuild.sh
 cd ..
 ./autogen.sh
 ./configure --prefix=$PWD/depends/arm-linux-gnueabihf --enable-glibc-back-compat --enable-reduce-exports LDFLAGS=-static-libstdc++
@@ -36,7 +40,7 @@ make
 # cd ..
 # ./autogen.sh
 # ./configure --with-incompatible-bdb
-# make
+make
 make install
 cd src
 ./mundoteamd -daemon
