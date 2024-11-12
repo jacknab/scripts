@@ -1,5 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #########################################################
+# Created by jacknab | jacknabvoip@mgail.com
 # Start script for setting up MPOS and NOMP on different OS
 #########################################################
 
