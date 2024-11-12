@@ -3,7 +3,7 @@
 # Created by jacknab for php-mpos and nomp pool...
 # This script is intended to be run on Ubuntu 22.04
 # like this:
-# curl https://raw.githubusercontent.com/jacknab/scripts/main/install.sh | bash
+# curl https://raw.githubusercontent.com/jacknab/scripts/main/install-ubuntu22.04.sh | bash
 #
 #########################################################
 
@@ -12,6 +12,7 @@ sudo apt -y install software-properties-common
 sudo apt install -y lsb-release ca-certificates apt-transport-https
 sudo apt install -y git curl zip wget
 
+# Run with a title (this function should be implemented in your script or removed if unnecessary)
 run_with_title "Installing additional packages for MPOS..." "sudo apt-get install -y build-essential libcurl4-openssl-dev libdb5.3-dev libdb5.3++-dev"
 run_with_title "Installing Python dependencies..." "sudo apt-get install -y python-twisted python-mysqldb python-dev python-setuptools python-memcache python-simplejson python-pylibmc"
 
@@ -21,17 +22,20 @@ run_with_title "Restarting Apache..." "sudo systemctl restart apache2"
 # Install Boost libraries
 run_with_title "Installing Boost libraries..." "sudo apt-get install -y libboost-all-dev"
 
-# Step 2: Install PHP 7.4
-# Add PHP repository and install PHP 7.4
-sudo add-apt-repository --no-prompt ppa:ondrej/php
+# Step 2: Add PHP 7.4 repository and install PHP 7.4
+echo "Adding PHP 7.4 repository..."
+sudo add-apt-repository -y ppa:ondrej/php
 sudo apt update
-sudo apt -y install php7.4 php7.4-cli php7.4-json php7.4-common php7.4-mysql php7.4-zip php7.4-gd php7.4-mbstring php7.4-curl php7.4-xml php7.4-bcmath php7.4-memcached php7.4-mysql libapache2-mod-php7.4
+sudo apt -y install php7.4 php7.4-cli php7.4-curl php7.4-mysql php7.4-mbstring php7.4-xml php7.4-zip php7.4-gd php7.4-json libapache2-mod-php7.4
 
-# Install PHP extensions for MPOS
-sudo apt-get -y install php7.4-mbstring php7.4-xml php-mbstring php-xml php-mysql php-json php-curl php-zip
+# Install PHP 7.4 extensions
+sudo apt-get -y install php7.4-cli php7.4-json php7.4-common php7.4-mysql php7.4-zip php7.4-gd php7.4-mbstring php7.4-curl php7.4-xml php7.4-bcmath
 
-# Step 3: Install Python 2.7
-# Install python 2.7
+# Install Memcached and other required PHP packages
+sudo apt-get -y install memcached php7.4-memcached
+
+# Step 3: Install Python 2.7 and pip
+echo "Installing Python 2.7..."
 sudo apt-get -y install python2.7
 sudo ln -s /usr/bin/python2.7 /usr/bin/python
 wget -4 https://bootstrap.pypa.io/pip/2.7/get-pip.py
@@ -43,9 +47,9 @@ sudo apt-get -y install python2.7-dev build-essential
 sudo apt-get -y install python-setuptools
 pip install -y python-memcached
 sudo apt-get -y install python-memcached
-sudo apt-get -y install libmemcached-dev 
-sudo apt-get -y install python-dev 
-sudo apt-get -y install python-setuptools 
+sudo apt-get -y install libmemcached-dev
+sudo apt-get -y install python-dev
+sudo apt-get -y install python-setuptools
 pip2 install -y pylibmc
 
 sudo apt-get -y install python-twisted python-mysqldb python-dev python-setuptools python-memcache python-simplejson
@@ -70,7 +74,7 @@ sudo apt install -y phpmyadmin
 sudo apt install -y php-cli unzip curl
 curl -sS https://getcomposer.org/installer -o composer-setup.php
 sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
-rm composer-setup.php
+sudo rm composer-setup.php
 composer self-update
 composer config --global --list
 sudo systemctl restart apache2
@@ -90,7 +94,7 @@ sudo systemctl restart apache2
 # Install MPOS dependencies using Composer
 cd ~
 cd /var/www/MPOS
-php composer.phar install
+sudo php composer.phar install
 
 # MPOS Database Setup
 cd ~
