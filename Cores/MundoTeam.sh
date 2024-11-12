@@ -17,11 +17,15 @@ pkg-config --modversion libseccomp
 sudo apt-get install libcap-dev
 sudo apt-get install g++-mingw-w64-i686 mingw-w64-i686-dev g++-mingw-w64-x86-64 mingw-w64-x86-64-dev curl libevent-dev libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev
 sudo apt-get install g++-arm-linux-gnueabihf curl
+sudo apt install gcc-arm-linux-gnueabihf
+sudo apt-get install libssl-dev libevent-dev libboost-all-dev
+sudo apt-get install libtool autoconf pkg-config
 
 git clone https://github.com/Mundoteam/MundoTeam_Core.git
 cd /root/MundoTeam_Core
 cd depends
-make HOST=arm-linux-gnueabihf NO_QT=1
+chmod +x config.guess config.sub
+sudo make HOST=arm-linux-gnueabihf NO_QT=1
 cd ..
 ./autogen.sh
 ./configure --prefix=$PWD/depends/arm-linux-gnueabihf --enable-glibc-back-compat --enable-reduce-exports LDFLAGS=-static-libstdc++
