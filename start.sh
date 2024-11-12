@@ -14,7 +14,7 @@ install_debian11() {
 install_ubuntu2204() {
     echo "Detected Ubuntu 22.04. Running Ubuntu 22.04 specific installation script..."
     # Replace this with the actual Ubuntu 22.04 script command or wget to a file
-    curl -sL https://raw.githubusercontent.com/jacknab/scripts/main/install-Ubuntu22.sh | bash
+    curl -sL https://raw.githubusercontent.com/jacknab/scripts/main/php-Ubuntu22.sh | bash
 }
 
 # Check the OS version and execute the corresponding function
