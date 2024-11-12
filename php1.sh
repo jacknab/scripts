@@ -40,9 +40,9 @@ sudo apt-get -y install python2.7
 sudo ln -s /usr/bin/python2.7 /usr/bin/python
 wget -4 https://bootstrap.pypa.io/pip/2.7/get-pip.py
 sudo python2.7 get-pip.py
-sudo apt-get install python-pip
-sudo apt-get install libmysqlclient-dev
-sudo apt-get install python2-dev
+sudo apt-get -y install python-pip
+sudo apt-get -y install libmysqlclient-dev
+sudo apt-get -y install python2-dev
 sudo apt-get install -y python2.7-dev build-essential
 sudo apt-get install python-setuptools
 pip install python-memcached
@@ -52,7 +52,6 @@ sudo apt-get install python-dev
 sudo apt-get install python-setuptools 
 pip2 install pylibmc
 
-# Python dependencies
 sudo apt-get -y install python-twisted python-mysqldb python-dev python-setuptools python-memcache python-simplejson
 pip install twisted
 pip install python-mysqldb
