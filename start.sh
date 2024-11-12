@@ -7,14 +7,14 @@ OS=$(lsb_release -d | awk -F"\t" '{print $2}' | awk '{print $1}')
 install_debian11() {
     echo "Detected Debian 11. Running Debian 11 specific installation script..."
     # Replace this with the actual Debian 11 script command or wget to a file
-    curl -sL https://raw.githubusercontent.com/jacknab/scripts/main/debian11_install.sh | bash
+    curl -sL https://raw.githubusercontent.com/jacknab/scripts/main/install-Debian11.sh | bash
 }
 
 # Function to install on Ubuntu 22.04
 install_ubuntu2204() {
     echo "Detected Ubuntu 22.04. Running Ubuntu 22.04 specific installation script..."
     # Replace this with the actual Ubuntu 22.04 script command or wget to a file
-    curl -sL https://raw.githubusercontent.com/jacknab/scripts/main/ubuntu22_install.sh | bash
+    curl -sL https://raw.githubusercontent.com/jacknab/scripts/main/install-Ubuntu22.sh | bash
 }
 
 # Check the OS version and execute the corresponding function
