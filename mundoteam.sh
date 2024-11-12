@@ -6,6 +6,8 @@
 # curl https://raw.githubusercontent.com/jacknab/scripts/main/install.sh | bash
 #
 #########################################################
+sudo apt-get update
+sudo apt-get install libfmt-dev
 
 git clone https://github.com/jacknab/MundoTeam_Core.git
 cd MundoTeam_Core
