@@ -6,6 +6,7 @@
 # curl https://raw.githubusercontent.com/jacknab/scripts/main/install.sh | bash
 #
 #########################################################
+set -x
 apt install sudo wget -y
 
 cd ~
