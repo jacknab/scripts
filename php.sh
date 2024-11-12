@@ -35,7 +35,7 @@ function run_with_title() {
 # MYSQL_ROOT_PASSWORD=$(cat /root/mysql_information.txt)
 
 # Hold MySQL packages to prevent them from being updated
-sudo apt-mark hold mysql-server mysql-client
+# sudo apt-mark hold mysql-server mysql-client
 
 # Install necessary packages for adding repositories
 sudo apt -y install software-properties-common
@@ -66,7 +66,7 @@ echo "Installing PHP 7.4.3..."
 echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/php.list
 wget -qO - https://packages.sury.org/php/apt.gpg | sudo apt-key add -
 sudo apt update
-sudo apt -y install php7.4
+# sudo apt -y install php7.4
 sudo apt -y install memcached php7.4-memcached php7.4-mysql php7.4-cli php7.4-curl php7.4-mbstring php7.4-xml php7.4-zip php7.4-gd php7.4-json libapache2-mod-php7.4 curl
 sudo apt-get -y install php7.4-cli php7.4-json php7.4-common php7.4-mysql php7.4-zip php7.4-gd php7.4-mbstring php7.4-curl php7.4-xml php7.4-bcmath
 # php7.4 version
@@ -170,5 +170,5 @@ echo -e "\033[1;32mInstallation completed successfully!\033[0m" | tee -a "$LOG_F
 echo "Restarting Apache..."
 sudo systemctl restart apache2
 cd ~
-curl https://raw.githubusercontent.com/jacknab/scripts/main/nomp.sh | bash
+# curl https://raw.githubusercontent.com/jacknab/scripts/main/nomp.sh | bash
 
