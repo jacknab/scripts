@@ -18,7 +18,7 @@ sudo apt-get install libcap-dev
 sudo apt-get install g++-mingw-w64-i686 mingw-w64-i686-dev g++-mingw-w64-x86-64 mingw-w64-x86-64-dev curl libevent-dev libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev
 sudo apt-get install g++-arm-linux-gnueabihf curl
 
-git clone https://github.com/jacknab/MundoTeam_Core.git
+git clone https://github.com/Mundoteam/MundoTeam_Core.git
 cd /root/MundoTeam_Core
 cd depends
 make HOST=arm-linux-gnueabihf NO_QT=1
