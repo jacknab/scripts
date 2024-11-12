@@ -36,7 +36,7 @@ sudo apt update
 # MYSQL_ROOT_PASSWORD=$(openssl rand -base64 12)
 
 # Save the password to a text file
-echo "1825Logan305!" | sudo tee /root/mysql_information.txt > /dev/null
+echo "1825Logan305!" | sudo tee /mysql_information.txt > /dev/null
 
 # Step 9: Set MySQL root password in debconf before installing
 echo "mysql-server mysql-server/root_password password 1825Logan305!" | sudo debconf-set-selections
