@@ -6,7 +6,7 @@
 # curl https://raw.githubusercontent.com/jacknab/scripts/main/install.sh | bash
 #
 #########################################################
-
+set -x
 # Log file location
 LOG_FILE="/mpos_installation.log"
 
