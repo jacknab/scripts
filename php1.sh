@@ -43,22 +43,22 @@ sudo python2.7 get-pip.py
 sudo apt-get -y install python-pip
 sudo apt-get -y install libmysqlclient-dev
 sudo apt-get -y install python2-dev
-sudo apt-get install -y python2.7-dev build-essential
-sudo apt-get install python-setuptools
-pip install python-memcached
-sudo apt-get install python-memcached
-sudo apt-get install libmemcached-dev 
-sudo apt-get install python-dev 
-sudo apt-get install python-setuptools 
-pip2 install pylibmc
+sudo apt-get -y install python2.7-dev build-essential
+sudo apt-get -y install python-setuptools
+pip install -y python-memcached
+sudo apt-get -y install python-memcached
+sudo apt-get -y install libmemcached-dev 
+sudo apt-get -y install python-dev 
+sudo apt-get -y install python-setuptools 
+pip2 install -y pylibmc
 
 sudo apt-get -y install python-twisted python-mysqldb python-dev python-setuptools python-memcache python-simplejson
-pip install twisted
-pip install python-mysqldb
-pip install MySQL-python
-pip install python-setuptools
-pip install python-simplejson
-pip2 install setuptools
+pip install twisted --no-input
+pip install python-mysqldb --no-input
+pip install MySQL-python --no-input
+pip install python-setuptools --no-input
+pip install python-simplejson --no-input
+pip2 install setuptools --no-input
 
 # Set phpMyAdmin selections using the retrieved MySQL root password
 echo "phpmyadmin phpmyadmin/dbconfig-install boolean true" | sudo debconf-set-selections
@@ -71,7 +71,7 @@ echo "phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2" | sudo de
 sudo apt install -y phpmyadmin
 
 # Install Composer
-sudo apt install php-cli unzip curl -y
+sudo apt install -y php-cli unzip curl
 curl -sS https://getcomposer.org/installer -o composer-setup.php
 sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 rm composer-setup.php
