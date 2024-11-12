@@ -8,7 +8,7 @@
 #########################################################
 
 # Log file location
-LOG_FILE="/root/mpos_installation.log"
+LOG_FILE="/mpos_installation.log"
 
 # Function to log messages and execute commands
 function run_with_title() {
@@ -32,7 +32,7 @@ function run_with_title() {
 }
 
 # Retrieve the MySQL root password from the file
-# MYSQL_ROOT_PASSWORD=$(cat /root/mysql_information.txt)
+# MYSQL_ROOT_PASSWORD=$(cat /mysql_information.txt)
 
 # Hold MySQL packages to prevent them from being updated
 # sudo apt-mark hold mysql-server mysql-client
