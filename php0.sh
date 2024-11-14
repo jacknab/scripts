@@ -35,10 +35,9 @@ sudo apt-get -y install php-mbstring php-xml php-mysql php-json php-curl php-zip
 sudo apt-get -y install php-mbstring php-json php-curl php-xml php-mysql php-mcrypt php-zip
 
 # Step 3: Install Python 2.7
-# Install python 2.7
 sudo apt-get -y install python2.7
 sudo ln -s /usr/bin/python2.7 /usr/bin/python
-wget -4 https://bootstrap.pypa.io/pip/2.7/get-pip.py
+wget https://bootstrap.pypa.io/pip/2.7/get-pip.py
 sudo python2.7 get-pip.py
 sudo apt-get -y install python-pip
 sudo apt-get -y install libmysqlclient-dev
@@ -74,7 +73,7 @@ sudo apt install -y phpmyadmin
 sudo apt install -y php-cli unzip curl
 curl -sS https://getcomposer.org/installer -o composer-setup.php
 sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
-rm composer-setup.php
+sudo rm composer-setup.php
 composer self-update
 composer config --global --list
 sudo systemctl restart apache2
@@ -82,31 +81,31 @@ composer update
 
 # Clone MPOS Repository
 sudo apt -y install git
-cd ~
-cd /var/www
-sudo git clone https://github.com/jacknab/php-mpos.git MPOS
-cd MPOS
-sudo update-alternatives --set php /usr/bin/php7.4
-sudo a2dismod php8.3
-sudo a2enmod php7.4
-sudo systemctl restart apache2
+# cd ~
+# cd /var/www
+# sudo git clone https://github.com/jacknab/php-mpos.git MPOS
+# cd MPOS
+# sudo update-alternatives --set php /usr/bin/php7.4
+# sudo a2dismod php8.3
+# sudo a2enmod php7.4
+# sudo systemctl restart apache2
 
 # Install MPOS dependencies using Composer
-cd ~
-cd /var/www/MPOS
-php composer.phar install
+# cd ~
+# cd /var/www/MPOS
+# php composer.phar install
 
 # MPOS Database Setup
-cd ~
-cd /var/www/MPOS
+# cd ~
+# cd /var/www/MPOS
 
 # Use the generated MySQL root password for the command
-sudo mysql -u root -p"1825Logan305!" -e "CREATE DATABASE mpos;"
-sudo mysql -u root -p"1825Logan305!" mpos < sql/000_base_structure.sql
+# sudo mysql -u root -p"1825Logan305!" -e "CREATE DATABASE mundoteam;"
+# sudo mysql -u root -p"1825Logan305!" mundoteam < sql/000_base_structure.sql
 
 # Set MPOS Folder Permissions
-sudo chown -R www-data templates/compile templates/cache logs
-sudo cp include/config/global.inc.dist.php include/config/global.inc.php
+# sudo chown -R www-data templates/compile templates/cache logs
+# sudo cp include/config/global.inc.dist.php include/config/global.inc.php
 
 # Change the authentication method for the root user
 sudo mysql -u root -p"1825Logan305!" -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '1825Logan305!';"
