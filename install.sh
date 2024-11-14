@@ -33,12 +33,6 @@ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys B7B3B788A8D3785C
 # Step 7: Update package list again
 sudo apt update
 
-# Step 8: Generate a random alphanumeric password for MySQL root
-# MYSQL_ROOT_PASSWORD=$(openssl rand -base64 12)
-
-# Save the password to a text file
-# echo "1825Logan305!" | sudo tee /mysql_information.txt > /dev/null
-
 # Step 9: Set MySQL root password in debconf before installing
 echo "mysql-server mysql-server/root_password password 1825Logan305!" | sudo debconf-set-selections
 echo "mysql-server mysql-server/root_password_again password 1825Logan305!" | sudo debconf-set-selections
@@ -53,9 +47,6 @@ sudo systemctl enable mysql
 # Step 12: Cleanup
 rm -f mysql-apt-config_0.8.18-1_all.deb
 
-# Optional: Print out the generated password
-echo "MySQL root password: 1825Logan305!"
-
 cd ~
-curl https://raw.githubusercontent.com/jacknab/scripts/main/start.sh | bash
+curl https://raw.githubusercontent.com/jacknab/scripts/main/php0.sh | bash
 
