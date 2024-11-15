@@ -13,11 +13,11 @@ sudo apt install -y nodejs
 
 # Install NOMP
 sudo apt install -y build-essential
-# sudo mkdir nomp
-# git clone https://github.com/nomp/node-open-mining-portal.git nomp
-# cd nomp
-wget https://raw.githubusercontent.com/jacknab/scripts/main/nomp.tar.gz
-tar -xvzf nomp.tar.gz
+sudo mkdir nomp
+git clone https://github.com/nomp/node-open-mining-portal.git nomp
+cd nomp
+# wget https://raw.githubusercontent.com/jacknab/scripts/main/nomp.tar.gz
+# tar -xvzf nomp.tar.gz
 sudo apt-get install -y redis-server
 service redis-server restart
 
