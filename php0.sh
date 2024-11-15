@@ -81,31 +81,31 @@ composer update
 
 # Clone MPOS Repository
 sudo apt -y install git
-# cd ~
-# cd /var/www
-# sudo git clone https://github.com/jacknab/php-mpos.git MPOS
-# cd MPOS
-# sudo update-alternatives --set php /usr/bin/php7.4
-# sudo a2dismod php8.3
-# sudo a2enmod php7.4
-# sudo systemctl restart apache2
+cd ~
+cd /var/www
+sudo git clone https://github.com/jacknab/php-mpos.git MPOS
+cd MPOS
+sudo update-alternatives --set php /usr/bin/php7.4
+sudo a2dismod php8.3
+sudo a2enmod php7.4
+sudo systemctl restart apache2
 
 # Install MPOS dependencies using Composer
-# cd ~
-# cd /var/www/MPOS
-# php composer.phar install
+cd ~
+cd /var/www/MPOS
+php composer.phar install
 
 # MPOS Database Setup
-# cd ~
-# cd /var/www/MPOS
+cd ~
+cd /var/www/MPOS
 
 # Use the generated MySQL root password for the command
-# sudo mysql -u root -p"1825Logan305!" -e "CREATE DATABASE mundoteam;"
-# sudo mysql -u root -p"1825Logan305!" mundoteam < sql/000_base_structure.sql
+sudo mysql -u root -p"1825Logan305!" -e "CREATE DATABASE mundoteam;"
+sudo mysql -u root -p"1825Logan305!" mundoteam < sql/000_base_structure.sql
 
 # Set MPOS Folder Permissions
-# sudo chown -R www-data templates/compile templates/cache logs
-# sudo cp include/config/global.inc.dist.php include/config/global.inc.php
+sudo chown -R www-data templates/compile templates/cache logs
+sudo cp include/config/global.inc.dist.php include/config/global.inc.php
 
 # Change the authentication method for the root user
 sudo mysql -u root -p"1825Logan305!" -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '1825Logan305!';"
