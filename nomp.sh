@@ -10,14 +10,21 @@
 # Install Nodejs
 curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 sudo apt install -y nodejs
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+nvm install 14.13.1
+nvm alias default 14.13.1
+
 
 # Install NOMP
 sudo apt install -y build-essential
 sudo mkdir nomp
-git clone https://github.com/nomp/node-open-mining-portal.git nomp
+#git clone https://github.com/nomp/node-open-mining-portal.git nomp
 cd nomp
-# wget https://raw.githubusercontent.com/jacknab/scripts/main/nomp.tar.gz
-# tar -xvzf nomp.tar.gz
+wget https://raw.githubusercontent.com/jacknab/scripts/main/nomp.tar.gz
+tar -xvzf nomp.tar.gz
 sudo apt-get install -y redis-server
 service redis-server restart
 
