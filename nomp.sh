@@ -8,14 +8,14 @@
 #########################################################
 
 # Install Nodejs
-curl -fsSL https://deb.nodesource.com/setup_13.x | sudo -E bash -
+curl -fsSL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 sudo apt install -y nodejs
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-nvm install 14.13.1
-nvm alias default 14.13.1
+nvm install 10.19.0
+nvm alias default 10.19.0
 
 # Install NOMP
 sudo apt install -y build-essential
