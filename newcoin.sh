@@ -20,6 +20,20 @@ if [ -d "litecoin" ]; then
     echo "Removing existing coin directory..."
     rm -rf litecoin
 fi
+# Create a directory for Berkeley DB
+mkdir -p ~/db4 && cd ~/db4
+
+# Download Berkeley DB 4.8 source
+wget http://download.oracle.com/berkeley-db/db-4.8.30.NC.tar.gz
+
+# Extract the source
+tar -xzvf db-4.8.30.NC.tar.gz
+
+# Build and install
+cd db-4.8.30.NC/build_unix
+../dist/configure --enable-cxx --disable-shared --with-pic --prefix=$(pwd)/../../db4
+make -j$(nproc)
+make install
 
 # Clone the Litecoin repository (using the 0.18 branch)
 echo "Cloning Litecoin repository..."
@@ -82,7 +96,7 @@ echo "Running autogen.sh..."
 ./autogen.sh
 
 echo "Configuring build..."
-./configure --with-incompatible-bdb
+./configure LDFLAGS="-L$(pwd)/db4/lib/" CPPFLAGS="-I$(pwd)/db4/include/" --with-incompatible-bdb
 
 # Compile the code
 echo "Compiling the code..."
