@@ -20,20 +20,6 @@ if [ -d "litecoin" ]; then
     echo "Removing existing coin directory..."
     rm -rf litecoin
 fi
-# Create a directory for Berkeley DB
-mkdir -p ~/db4 && cd ~/db4
-
-# Download Berkeley DB 4.8 source
-wget http://download.oracle.com/berkeley-db/db-4.8.30.NC.tar.gz
-
-# Extract the source
-tar -xzvf db-4.8.30.NC.tar.gz
-
-# Build and install
-cd db-4.8.30.NC/build_unix
-../dist/configure --enable-cxx --disable-shared --with-pic --prefix=$(pwd)/../../db4
-make -j$(nproc)
-make install
 
 # Clone the Litecoin repository (using the 0.18 branch)
 echo "Cloning Litecoin repository..."
@@ -91,16 +77,26 @@ sed -i "s/consensus.nMinimumChainWork = .*;/consensus.nMinimumChainWork = uint25
 echo "Changing default port to 20095..."
 find ./ -type f -readable -writable -exec sed -i "s/9333/20095/g" {} \;
 
+PATH=$(echo "$PATH" | sed -e 's/:\/mnt.*//g')
+cd depends
+make HOST=x86_64-pc-linux-gnu
+cd ..
+
 # Run autogen and configure scripts
 echo "Running autogen.sh..."
 ./autogen.sh
-
-echo "Configuring build..."
-./configure LDFLAGS="-L$(pwd)/db4/lib/" CPPFLAGS="-I$(pwd)/db4/include/" --with-incompatible-bdb
-
+CONFIG_SITE=$PWD/depends/x86_64-pc-linux-gnu/share/config.site ./configure --prefix=/
+make
+make clean
+PATH=$(echo "$PATH" | sed -e 's/:\/mnt.*//g')
+cd depends
+make HOST=i686-pc-linux-gnu
+cd ..
 # Compile the code
 echo "Compiling the code..."
-make -j$(nproc)  # Compile using all available CPU cores
+./autogen.sh
+CONFIG_SITE=$PWD/depends/i686-pc-linux-gnu/share/config.site ./configure --prefix=/
+make
 
 # Rename the directory to Hugocoin
 echo "Renaming directory to Hugocoin..."
