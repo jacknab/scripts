@@ -8,10 +8,10 @@ REPO_URL="https://github.com/litecoin-project/litecoin.git"
 COIN_NAME="Hugocoin"
 TICKER="HUGO"
 TIMESTAMP=$(date +%s)  # Get current timestamp
-NONCE="123456"          # Update to your desired nonce
+NONCE="1"          # Update to your desired nonce
 WALLET_ADDRESS_PREFIX="h"  # First letter of the wallet address
 FRAC_NAME="HUGO"        # Name for fractions of the coin
-PORT_BASE=20100         # Base port number for the coin
+PORT_BASE=20096         # Base port number for the coin
 P2P_PORT=$((PORT_BASE + 1))  # P2P port
 RPC_PORT=$((PORT_BASE + 2))  # RPC port
 
