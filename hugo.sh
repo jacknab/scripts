@@ -68,7 +68,7 @@ chmod +x genesis.py
 echo "Generating genesis block hash and Merkle root..."
 pip install scrypt==0.8.6
 pip2 install scrypt construct==2.5.2
-GENESIS_OUTPUT=$(python2 genesis.py -a scrypt -z "CNN 08/11/2024 Donald Trump become president again" -p "040184710fa689ad5023690c80f3a49c8f13f8d45b8c857fbcbc8bc4a8e4d3eb4b10f4d4604fa08dce601aaf0f470216fe1b51850b4acf21b179c45070ac7b03a9" -t 1317972665 -n $NONCE)
+GENESIS_OUTPUT=$(python2 genesis.py -a scrypt -z "This coin was created in 2024" -p "040184710fa689ad5023690c80f3a49c8f13f8d45b8c857fbcbc8bc4a8e4d3eb4b10f4d4604fa08dce601aaf0f470216fe1b51850b4acf21b179c45070ac7b03a9" -t 1317972665 -n $NONCE)
 
 # Extract the genesis hash and merkle root from the output
 GENESIS_HASH=$(echo "$GENESIS_OUTPUT" | grep "Genesis Block Hash:" | awk '{print $NF}')
@@ -77,7 +77,7 @@ MERKLE_ROOT=$(echo "$GENESIS_OUTPUT" | grep "Merkle Root:" | awk '{print $NF}')
 # Modify src/chainparams.cpp
 echo "Modifying src/chainparams.cpp..."
 sed -i "s/strNetworkID = \"test\";/strNetworkID = \"hugocoin\";/g" src/chainparams.cpp
-sed -i "s/The Times 05\/Nov\/2024 Trump becomes President again/$COIN_NAME Timestamp Here/g" src/chainparams.cpp
+sed -i "s/On 05\/Nov\/2024 This coin was created/$COIN_NAME Timestamp Here/g" src/chainparams.cpp
 sed -i "s/genesis.nTime = 1231006505;/genesis.nTime = $TIMESTAMP;/g" src/chainparams.cpp
 sed -i "s/genesis.nNonce = 2083236893;/genesis.nNonce = $NONCE;/g" src/chainparams.cpp
 sed -i "s/genesis.nBits = 0x1d00ffff;/genesis.nBits = 0x1e0fffff;/g" src/chainparams.cpp
@@ -85,9 +85,9 @@ sed -i "s/pchMessageStart\[0\] = 0x4c;/pchMessageStart\[0\] = 0x42;/g" src/chain
 sed -i "s/pchMessageStart\[0\] = 0x4c;/pchMessageStart\[0\] = 0x68;/g" src/chainparams.cpp  # Update for H
 sed -i "s/static MapCheckpoints checkpoints = {/static MapCheckpoints checkpoints = {\n    { 0, uint256(\"$GENESIS_HASH\") }/g" src/validation.cpp
 
-# Set block reward to 2000 and disable halving
-echo "Setting block reward to 2000 and disabling halving..."
-sed -i "s/consensus.nSubsidy = .*;/consensus.nSubsidy = 2000 * COIN;/g" src/chainparams.cpp
+# Set block reward to 100 and disable halving
+echo "Setting block reward to 100 and disabling halving..."
+sed -i "s/consensus.nSubsidy = .*;/consensus.nSubsidy = 100 * COIN;/g" src/chainparams.cpp
 sed -i "s/consensus.nHalvingInterval = .*;/consensus.nHalvingInterval = 999999999;/g" src/chainparams.cpp  # Set a very high number to prevent halving
 
 # Modify src/chainparams.h
@@ -106,8 +106,8 @@ sed -i '/vSeeds.emplace_back/d' src/chainparams.cpp
 echo "Setting minimum chain work to 0x00..."
 sed -i "s/consensus.nMinimumChainWork = .*;/consensus.nMinimumChainWork = uint256S(\"0x00\");/g" src/chainparams.cpp
 
-# Change default port to 4666
-echo "Changing default port to 4666..."
+# Change default port to 9666
+echo "Changing default port to 9666..."
 find ./ -type f -readable -writable -exec sed -i "s/9333/9666/g" {} \;
 
 # Run autogen and configure scripts
