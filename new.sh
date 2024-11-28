@@ -37,7 +37,7 @@ chmod +x genesis.py
 
 # Generate genesis block hash and Merkle root
 echo "Generating genesis block hash and Merkle root..."
-GENESIS_OUTPUT=$(python2 genesis.py -a scrypt -z "OneCent was created on Nov 26 2024" -p "040184710fa689ad5023690c80f3a49c8f13f8d45b8c857fbcbc8bc4a8e4d3eb4b10f4d4604fa08dce601aaf0f470216fe1b51850b4acf21b179c45070ac7b03a9" -t $TIMESTAMP -n $NONCE)
+GENESIS_OUTPUT=$(python2 genesis.py -a scrypt -z "I was created in 2024" -p "040184710fa689ad5023690c80f3a49c8f13f8d45b8c857fbcbc8bc4a8e4d3eb4b10f4d4604fa08dce601aaf0f470216fe1b51850b4acf21b179c45070ac7b03a9" -t $TIMESTAMP -n $NONCE)
 
 # Extract the genesis hash and merkle root from the output
 GENESIS_HASH=$(echo "$GENESIS_OUTPUT" | grep "Genesis Block Hash:" | awk '{print $NF}')
@@ -46,7 +46,7 @@ MERKLE_ROOT=$(echo "$GENESIS_OUTPUT" | grep "Merkle Root:" | awk '{print $NF}')
 # Modify src/chainparams.cpp
 echo "Modifying src/chainparams.cpp..."
 sed -i "s/strNetworkID = \"test\";/strNetworkID = \"hugocoin\";/g" src/chainparams.cpp
-sed -i "s/OneCent was created on Nov 20 2024/$COIN_NAME Timestamp Here/g" src/chainparams.cpp
+sed -i "s/I was created in 2024/$COIN_NAME Timestamp Here/g" src/chainparams.cpp
 sed -i "s/genesis.nTime = 1231006505;/genesis.nTime = $TIMESTAMP;/g" src/chainparams.cpp
 sed -i "s/genesis.nNonce = 2083236893;/genesis.nNonce = $NONCE;/g" src/chainparams.cpp
 sed -i "s/genesis.nBits = 0x1d00ffff;/genesis.nBits = 0x1e0fffff;/g" src/chainparams.cpp
@@ -57,7 +57,7 @@ sed -i "s/static MapCheckpoints checkpoints = {/static MapCheckpoints checkpoint
 # Set block reward to 200 and disable halving
 echo "Setting block reward to 200 and disabling halving..."
 sed -i "s/consensus.nSubsidy = .*;/consensus.nSubsidy = 200 * COIN;/g" src/chainparams.cpp
-sed -i "s/consensus.nHalvingInterval = .*;/consensus.nHalvingInterval = 999999999;/g" src/chainparams.cpp  # Set a very high number to prevent halving
+sed -i "s/consensus.nHalvingInterval = .*;/consensus.nHalvingInterval = 210000;/g" src/chainparams.cpp 
 
 # Modify src/chainparams.h
 echo "Modifying src/chainparams.h..."
