@@ -32,7 +32,7 @@ chmod +x autogen.sh share/genbuild.sh
 
 # Download and run genesis.py
 echo "Downloading genesis.py..."
-wget https://raw.githubusercontent.com/lhartikk/GenesisH0/master/genesis.py
+wget -4 https://raw.githubusercontent.com/lhartikk/GenesisH0/master/genesis.py
 chmod +x genesis.py
 
 # Generate genesis block hash and Merkle root
