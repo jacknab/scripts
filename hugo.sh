@@ -50,14 +50,10 @@ if [ -d "litecoin" ]; then
     rm -rf litecoin
 fi
 
-# Clone the Hugocoin repository (using the 0.18 branch)
-echo "Cloning Hugocoin repository..."
+# Clone the litecoin repository (using the 0.21 branch)
+echo "Cloning litecoin repository..."
 git clone -b 0.21 http://github.com/litecoin-project/litecoin.git
-cd litecoin || exit
-
-# Make autogen.sh and genbuild.sh executable
-echo "Setting execute permissions on autogen.sh and genbuild.sh..."
-chmod +x autogen.sh share/genbuild.sh
+# cd litecoin || exit
 
 # Download and run genesis.py
 echo "Downloading genesis.py..."
@@ -77,7 +73,7 @@ MERKLE_ROOT=$(echo "$GENESIS_OUTPUT" | grep "Merkle Root:" | awk '{print $NF}')
 # Modify src/chainparams.cpp
 echo "Modifying src/chainparams.cpp..."
 sed -i "s/strNetworkID = \"test\";/strNetworkID = \"hugocoin\";/g" src/chainparams.cpp
-sed -i "s/On 05\/Nov\/2024 This coin was created/$COIN_NAME Timestamp Here/g" src/chainparams.cpp
+sed -i "s/This coin was created in 2024/$COIN_NAME Timestamp Here/g" src/chainparams.cpp
 sed -i "s/genesis.nTime = 1231006505;/genesis.nTime = $TIMESTAMP;/g" src/chainparams.cpp
 sed -i "s/genesis.nNonce = 2083236893;/genesis.nNonce = $NONCE;/g" src/chainparams.cpp
 sed -i "s/genesis.nBits = 0x1d00ffff;/genesis.nBits = 0x1e0fffff;/g" src/chainparams.cpp
@@ -85,10 +81,10 @@ sed -i "s/pchMessageStart\[0\] = 0x4c;/pchMessageStart\[0\] = 0x42;/g" src/chain
 sed -i "s/pchMessageStart\[0\] = 0x4c;/pchMessageStart\[0\] = 0x68;/g" src/chainparams.cpp  # Update for H
 sed -i "s/static MapCheckpoints checkpoints = {/static MapCheckpoints checkpoints = {\n    { 0, uint256(\"$GENESIS_HASH\") }/g" src/validation.cpp
 
-# Set block reward to 100 and disable halving
-echo "Setting block reward to 100 and disabling halving..."
+# Set block reward to 100 and 
+echo "Setting block reward to 100 and 4 year halving..."
 sed -i "s/consensus.nSubsidy = .*;/consensus.nSubsidy = 100 * COIN;/g" src/chainparams.cpp
-sed -i "s/consensus.nHalvingInterval = .*;/consensus.nHalvingInterval = 999999999;/g" src/chainparams.cpp  # Set a very high number to prevent halving
+sed -i "s/consensus.nHalvingInterval = .*;/consensus.nHalvingInterval = 840960;/g" src/chainparams.cpp 
 
 # Modify src/chainparams.h
 echo "Modifying src/chainparams.h..."
@@ -106,9 +102,9 @@ sed -i '/vSeeds.emplace_back/d' src/chainparams.cpp
 echo "Setting minimum chain work to 0x00..."
 sed -i "s/consensus.nMinimumChainWork = .*;/consensus.nMinimumChainWork = uint256S(\"0x00\");/g" src/chainparams.cpp
 
-# Change default port to 9666
-echo "Changing default port to 9666..."
-find ./ -type f -readable -writable -exec sed -i "s/9333/9666/g" {} \;
+# Change default port to 20085
+echo "Changing default port to 20085..."
+find ./ -type f -readable -writable -exec sed -i "s/9333/20085/g" {} \;
 
 # Run autogen and configure scripts
 echo "Running autogen.sh..."
