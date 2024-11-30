@@ -39,11 +39,6 @@ sudo apt-get install -y \
     python2-dev \
     python-setuptools
 
-# Install pip2
-echo "Installing pip2..."
-wget https://bootstrap.pypa.io/pip/2.7/get-pip.py
-python2 get-pip.py
-
 # Remove existing litecoin directory if it exists
 if [ -d "litecoin" ]; then
     echo "Removing existing Hugocoin directory..."
@@ -55,15 +50,9 @@ echo "Cloning litecoin repository..."
 git clone -b 0.21 http://github.com/litecoin-project/litecoin.git
 # cd litecoin || exit
 
-# Download and run genesis.py
-echo "Downloading genesis.py..."
-wget https://raw.githubusercontent.com/lhartikk/GenesisH0/master/genesis.py
-chmod +x genesis.py
 
 # Generate genesis block hash and Merkle root
 echo "Generating genesis block hash and Merkle root..."
-pip install scrypt==0.8.6
-pip2 install scrypt construct==2.5.2
 GENESIS_OUTPUT=$(python2 genesis.py -a scrypt -z "This coin was created in 2024" -p "040184710fa689ad5023690c80f3a49c8f13f8d45b8c857fbcbc8bc4a8e4d3eb4b10f4d4604fa08dce601aaf0f470216fe1b51850b4acf21b179c45070ac7b03a9" -t 1317972665 -n $NONCE)
 
 # Extract the genesis hash and merkle root from the output
