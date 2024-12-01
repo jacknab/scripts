@@ -70,42 +70,42 @@ echo "phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2" | sudo de
 sudo apt install -y phpmyadmin
 
 # Install Composer
-sudo apt install -y php-cli unzip curl
-curl -sS https://getcomposer.org/installer -o composer-setup.php
-sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
-sudo rm composer-setup.php
-composer self-update
-composer config --global --list
-sudo systemctl restart apache2
-composer update
+# sudo apt install -y php-cli unzip curl
+# curl -sS https://getcomposer.org/installer -o composer-setup.php
+# sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+# sudo rm composer-setup.php
+# composer self-update
+# composer config --global --list
+# sudo systemctl restart apache2
+# composer update
 
 # Clone MPOS Repository
-sudo apt -y install git
-cd ~
-cd /var/www
-sudo git clone https://github.com/jacknab/php-mpos.git MPOS
-cd MPOS
-sudo update-alternatives --set php /usr/bin/php7.4
-sudo a2dismod php8.3
-sudo a2enmod php7.4
+# sudo apt -y install git
+# cd ~
+# cd /var/www
+# sudo git clone https://github.com/jacknab/php-mpos.git MPOS
+# cd MPOS
+# sudo update-alternatives --set php /usr/bin/php7.4
+# sudo a2dismod php8.3
+# sudo a2enmod php7.4
 sudo systemctl restart apache2
 
 # Install MPOS dependencies using Composer
 cd ~
 cd /var/www/MPOS
-php composer.phar install
+# php composer.phar install
 
 # MPOS Database Setup
-cd ~
-cd /var/www/MPOS
+# cd ~
+# cd /var/www/MPOS
 
 # Use the generated MySQL root password for the command
-sudo mysql -u root -p"1825Logan305!" -e "CREATE DATABASE mundoteam;"
-sudo mysql -u root -p"1825Logan305!" mundoteam < sql/000_base_structure.sql
+sudo mysql -u root -p"1825Logan305!" -e "CREATE DATABASE hugocoin;"
+sudo mysql -u root -p"1825Logan305!" hugocoin < sql/000_base_structure.sql
 
 # Set MPOS Folder Permissions
-sudo chown -R www-data templates/compile templates/cache logs
-sudo cp include/config/global.inc.dist.php include/config/global.inc.php
+# sudo chown -R www-data templates/compile templates/cache logs
+# sudo cp include/config/global.inc.dist.php include/config/global.inc.php
 
 # Change the authentication method for the root user
 sudo mysql -u root -p"1825Logan305!" -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '1825Logan305!';"
@@ -114,10 +114,21 @@ sudo mysql -u root -p"1825Logan305!" -e "FLUSH PRIVILEGES;"
 # Set the global sql_mode
 sudo mysql -u root -p"1825Logan305!" -e "SET GLOBAL sql_mode='STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';"
 
+# Define the MySQL configuration to add
+config="[mysqld]
+sql_mode=STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"
+
+# Append the configuration to /etc/mysql/my.cnf
+echo "$config" | sudo tee -a /etc/mysql/my.cnf
+
+# Restart the MySQL service to apply changes
+sudo systemctl restart mysql
+
+
 # Restart Apache to apply changes
 echo "Restarting Apache..."
 sudo systemctl restart apache2
 
 cd ~
-curl https://raw.githubusercontent.com/jacknab/scripts/main/nomp.sh | bash
+# curl https://raw.githubusercontent.com/jacknab/scripts/main/nomp.sh | bash
 
