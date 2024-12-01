@@ -116,7 +116,7 @@ sudo mysql -u root -p"1825Logan305!" -e "SET GLOBAL sql_mode='STRICT_TRANS_TABLE
 
 # Define the MySQL configuration to add
 config="[mysqld]
-sql_mode=STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"
+SET GLOBAL sql_mode=STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"
 
 # Append the configuration to /etc/mysql/my.cnf
 echo "$config" | sudo tee -a /etc/mysql/my.cnf
