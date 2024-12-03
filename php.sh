@@ -119,5 +119,14 @@ echo "Restarting Apache..."
 sudo systemctl restart apache2
 
 cd ~
-curl https://raw.githubusercontent.com/jacknab/scripts/main/nomp.sh | bash
+# Install Nodejs
+curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+# Install NOMP
+sudo apt install -y build-essential
+wget https://raw.githubusercontent.com/jacknab/scripts/main/nomp_.tar.gz
+tar -xvzf nomp_.tar.gz
+sudo apt-get install -y redis-server
+service redis-server restart
 
