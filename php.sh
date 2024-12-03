@@ -6,7 +6,6 @@
 # curl https://raw.githubusercontent.com/jacknab/scripts/main/install.sh | bash
 #
 #########################################################
-exec > php.txt 2>&1
 
 # Install necessary packages for adding repositories
 sudo apt -y install software-properties-common
