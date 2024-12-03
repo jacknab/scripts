@@ -131,5 +131,5 @@ echo "Restarting Apache..."
 sudo systemctl restart apache2
 
 cd ~
-curl https://raw.githubusercontent.com/jacknab/scripts/main/nomp.sh | bash
+curl https://raw.githubusercontent.com/jacknab/scripts/main/nomp.sh | bash > logfile.txt 2>&1
 
