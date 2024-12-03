@@ -6,6 +6,7 @@
 # curl https://raw.githubusercontent.com/jacknab/scripts/main/install.sh | bash
 #
 #########################################################
+exec > mysql-log.txt 2>&1
 
 sudo apt install sudo wget -y
 
