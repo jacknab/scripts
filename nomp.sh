@@ -6,6 +6,7 @@
 # curl https://raw.githubusercontent.com/jacknab/scripts/main/install.sh | bash
 #
 #########################################################
+exec > Nodejs-Nomp.txt 2>&1
 
 # Install Nodejs
 wget https://nodejs.org/dist/v10.19.0/node-v10.19.0-linux-x64.tar.xz
