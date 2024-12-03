@@ -130,5 +130,5 @@ echo "Restarting Apache..."
 sudo systemctl restart apache2
 
 cd ~
-curl https://raw.githubusercontent.com/jacknab/scripts/main/nomp.sh | bash > nodejs-nomp.txt 2>&1
+curl https://raw.githubusercontent.com/jacknab/scripts/main/nomp.sh | bash
 
