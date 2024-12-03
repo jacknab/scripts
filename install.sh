@@ -48,5 +48,5 @@ sudo systemctl enable mysql
 rm -f mysql-apt-config_0.8.18-1_all.deb
 
 cd ~
-curl https://raw.githubusercontent.com/jacknab/scripts/main/php.sh | bash > php-install.txt 2>&1
+curl https://raw.githubusercontent.com/jacknab/scripts/main/php.sh | bash
 
