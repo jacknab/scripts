@@ -114,17 +114,6 @@ sudo mysql -u root -p"1825Logan305!" -e "FLUSH PRIVILEGES;"
 # Set the global sql_mode
 sudo mysql -u root -p"1825Logan305!" -e "SET GLOBAL sql_mode='STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';"
 
-# Define the MySQL configuration to add
-config="[mysqld]
-SET GLOBAL sql_mode=STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"
-
-# Append the configuration to /etc/mysql/my.cnf
-echo "$config" | sudo tee -a /etc/mysql/my.cnf
-
-# Restart the MySQL service to apply changes
-sudo systemctl restart mysql
-
-
 # Restart Apache to apply changes
 echo "Restarting Apache..."
 sudo systemctl restart apache2
