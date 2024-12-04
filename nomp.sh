@@ -16,6 +16,7 @@ sudo apt-get install -y nodejs
 sudo apt install -y build-essential
 wget https://raw.githubusercontent.com/jacknab/scripts/main/nomp_.tar.gz
 tar -xvzf nomp_.tar.gz
+rm nomp_.tar.gz
 sudo apt-get install -y redis-server
 service redis-server restart
 
