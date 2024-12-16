@@ -35,7 +35,8 @@ sudo apt install -y php$PHP_VERSION php$PHP_VERSION-fpm php$PHP_VERSION-mysql ph
 # Configure Nginx for Laravel
 echo "Configuring Nginx..."
 LARAVEL_CONF="/etc/nginx/sites-available/aviator"
-sudo tee $LARAVEL_CONF > /dev/null <<EOL
+if [ ! -f $LARAVEL_CONF ]; then
+    sudo tee $LARAVEL_CONF > /dev/null <<EOL
 server {
     listen 80;
     server_name _;
@@ -59,11 +60,10 @@ server {
     }
 }
 EOL
-
-# Enable Aviator site and restart Nginx
-sudo ln -s $LARAVEL_CONF /etc/nginx/sites-enabled/
-sudo rm /etc/nginx/sites-enabled/default
-sudo systemctl restart nginx
+    sudo ln -s $LARAVEL_CONF /etc/nginx/sites-enabled/
+    sudo rm /etc/nginx/sites-enabled/default
+    sudo systemctl restart nginx
+fi
 
 # Install MySQL server
 echo "Installing MySQL..."
@@ -74,17 +74,16 @@ echo "Configuring MySQL..."
 sudo mysql <<EOF
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '$MYSQL_ROOT_PASSWORD';
 FLUSH PRIVILEGES;
-CREATE DATABASE $DB_NAME;
-CREATE USER '$DB_USER'@'localhost' IDENTIFIED BY '$DB_PASSWORD';
+CREATE DATABASE IF NOT EXISTS $DB_NAME;
+CREATE USER IF NOT EXISTS '$DB_USER'@'localhost' IDENTIFIED BY '$DB_PASSWORD';
 GRANT ALL PRIVILEGES ON $DB_NAME.* TO '$DB_USER'@'localhost';
 FLUSH PRIVILEGES;
-CREATE DATABASE casinosh_aviator;
-EXIT;
+CREATE DATABASE IF NOT EXISTS casinosh_aviator;
 EOF
 
 # Import SQL file into casinosh_aviator database
 echo "Importing casinosh_aviator.sql..."
-sudo mysql -u root -p"$MYSQL_ROOT_PASSWORD" casinosh_aviator < /opt/aviator/casinosh_aviator.sql
+sudo mysql -u root -p"$MYSQL_ROOT_PASSWORD" -e "USE casinosh_aviator; SHOW TABLES;" | grep -q "." || sudo mysql -u root -p"$MYSQL_ROOT_PASSWORD" casinosh_aviator < /opt/aviator/casinosh_aviator.sql
 
 # Install Node.js
 echo "Installing Node.js v$NODE_VERSION..."
@@ -107,9 +106,11 @@ sudo chown -R www-data:www-data /var/www/html
 sudo chmod -R 775 /var/www/html
 
 # Unzip aviator.zip and move .env
-echo "Configuring Aviator application..."
-sudo unzip /opt/aviator/aviator.zip -d /var/www/html
-sudo rm /var/www/html/laravel/.env
+if [ ! -d "/var/www/html/some_file_or_folder_from_zip" ]; then
+    echo "Unzipping aviator.zip..."
+    sudo unzip /opt/aviator/aviator.zip -d /var/www/html
+fi
+sudo rm -f /var/www/html/laravel/.env
 sudo mv /opt/aviator/.env /var/www/html/laravel
 
 # Final message
