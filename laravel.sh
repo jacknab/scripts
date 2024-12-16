@@ -1,4 +1,11 @@
-#!/bin/bash
+#!/usr/bin/env bash
+#########################################################
+# Created by jacknab for php-mpos and nomp pool...
+# This script is intended to be run on Debian 11
+# like this:
+# curl https://raw.githubusercontent.com/jacknab/scripts/main/laravel.sh | bash
+#
+#########################################################
 
 # Exit script on any error
 set -e
@@ -24,6 +31,39 @@ echo "Installing PHP $PHP_VERSION..."
 sudo add-apt-repository -y ppa:ondrej/php
 sudo apt update
 sudo apt install -y php$PHP_VERSION php$PHP_VERSION-fpm php$PHP_VERSION-mysql php$PHP_VERSION-cli php$PHP_VERSION-curl php$PHP_VERSION-mbstring php$PHP_VERSION-xml php$PHP_VERSION-zip
+
+# Configure Nginx for Laravel
+echo "Configuring Nginx..."
+LARAVEL_CONF="/etc/nginx/sites-available/aviator"
+sudo tee $LARAVEL_CONF > /dev/null <<EOL
+server {
+    listen 80;
+    server_name _;
+    root /var/www/html;
+
+    index index.php index.html index.htm;
+
+    location / {
+        try_files \$uri \$uri/ /index.php?\$query_string;
+    }
+
+    location ~ \.php\$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/var/run/php/php$PHP_VERSION-fpm.sock;
+        fastcgi_param SCRIPT_FILENAME \$document_root\$fastcgi_script_name;
+        include fastcgi_params;
+    }
+
+    location ~ /\.ht {
+        deny all;
+    }
+}
+EOL
+
+# Enable Aviator site and restart Nginx
+sudo ln -s $LARAVEL_CONF /etc/nginx/sites-enabled/
+sudo rm /etc/nginx/sites-enabled/default
+sudo systemctl restart nginx
 
 # Install MySQL server
 echo "Installing MySQL..."
@@ -59,39 +99,6 @@ sudo mv composer.phar /usr/local/bin/composer
 # Install phpMyAdmin
 echo "Installing phpMyAdmin..."
 sudo DEBIAN_FRONTEND=noninteractive apt install -y phpmyadmin
-
-# Configure Nginx for Laravel
-echo "Configuring Nginx..."
-LARAVEL_CONF="/etc/nginx/sites-available/aviator"
-sudo tee $LARAVEL_CONF > /dev/null <<EOL
-server {
-    listen 80;
-    server_name _;
-    root /var/www/html;
-
-    index index.php index.html index.htm;
-
-    location / {
-        try_files \$uri \$uri/ /index.php?\$query_string;
-    }
-
-    location ~ \.php\$ {
-        include snippets/fastcgi-php.conf;
-        fastcgi_pass unix:/var/run/php/php$PHP_VERSION-fpm.sock;
-        fastcgi_param SCRIPT_FILENAME \$document_root\$fastcgi_script_name;
-        include fastcgi_params;
-    }
-
-    location ~ /\.ht {
-        deny all;
-    }
-}
-EOL
-
-# Enable Aviator site and restart Nginx
-sudo ln -s $LARAVEL_CONF /etc/nginx/sites-enabled/
-sudo rm /etc/nginx/sites-enabled/default
-sudo systemctl restart nginx
 
 # Set permissions for web application folder
 echo "Setting up Aviator application..."
