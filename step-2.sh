@@ -77,4 +77,4 @@ systemctl restart nginx
 echo "✅ Step 2 complete. App is now live on your server IP via port 80."
 
 # Optional chain to step 3
-# curl -s https://raw.githubusercontent.com/jacknab/scripts/main/step-3.sh | bash
+curl -s https://raw.githubusercontent.com/jacknab/scripts/main/step-3.sh | bash
