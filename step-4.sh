@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 echo "🧩 Step 4: Add rig_settings table and update rental reset logic"
 
