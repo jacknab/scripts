@@ -51,6 +51,6 @@ echo "* * * * * root /root/mining_rental_app/venv/bin/python /root/mining_rental
 chmod 644 /etc/cron.d/rental-check
 touch /var/log/check_rentals.log
 
-echo "✅ Step 3 complete. Cron will check rentals every minute."
+echo "✅ Step 3 complete. Cron will check rentals every minute. Now run step-4"
 # Optional chain to step 3
-curl -s https://raw.githubusercontent.com/jacknab/scripts/main/step-4.sh | bash
+# curl -s https://raw.githubusercontent.com/jacknab/scripts/main/step-4.sh | bash
