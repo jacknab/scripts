@@ -36,5 +36,5 @@ EOF
 nohup python3 app.py &
 
 # Chain to step-2
-echo "✅ Step 1 complete. Running step-2..."
-curl -s https://raw.githubusercontent.com/jacknab/scripts/main/step-2.sh | bash
+echo "✅ Step 1 complete. Now run step-2..."
+# curl -s https://raw.githubusercontent.com/jacknab/scripts/main/step-2.sh | bash
