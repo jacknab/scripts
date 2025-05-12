@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 echo "🔁 Step 3: Setup cron job to monitor rental expirations"
 
