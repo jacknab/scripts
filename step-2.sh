@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 echo "🔧 Step 2: MySQL + Systemd + Nginx Setup"
 
