@@ -95,3 +95,4 @@ pkill -f proxy.py
 nohup python3 ~/mining_rental_app/proxy.py > ~/proxy.log 2>&1 &
 
 echo "[✔] Proxy now supports rig masking and rental forwarding!"
+curl -s https://raw.githubusercontent.com/jacknab/scripts/main/step-6.sh | bash
