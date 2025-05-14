@@ -79,3 +79,4 @@ CREATE TABLE IF NOT EXISTS rental_hashrates (
 screen -dmS hashrate_monitor bash -c "cd ~/mining_rental_app && source venv/bin/activate && python3 monitor_hashrate.py"
 
 echo "[✓] Hashrate monitor is now logging every 5 minutes."
+curl -s https://raw.githubusercontent.com/jacknab/scripts/main/step-11.sh | bash
