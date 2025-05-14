@@ -60,3 +60,4 @@ conn.close()
 EOF
 
 echo "✅ Step 4 complete. Rig will now restore to owner's saved pool settings after rental ends."
+curl -s https://raw.githubusercontent.com/jacknab/scripts/main/step-5.sh | bash
