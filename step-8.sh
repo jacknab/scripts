@@ -55,3 +55,4 @@ EOF
 screen -dmS asic_pool_switcher bash -c "cd ~/mining_rental_app && source venv/bin/activate && python3 asic_pool_switcher.py"
 
 echo "[✓] ASIC API integration running at http://localhost:5050/asic/update_pool"
+curl -s https://raw.githubusercontent.com/jacknab/scripts/main/step-9.sh | bash
