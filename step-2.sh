@@ -84,3 +84,4 @@ rm -f /etc/nginx/sites-enabled/default
 systemctl restart nginx
 
 echo "✅ Step 2 complete. App is now live on your server IP via port 80."
+curl -s https://raw.githubusercontent.com/jacknab/scripts/main/step-3.sh | bash
