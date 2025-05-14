@@ -10,7 +10,7 @@ systemctl enable mysql
 systemctl start mysql
 
 # Secure MySQL: Set root password & remove test DB and anonymous users
-MYSQL_ROOT_PASSWORD="r7)Kmof8tc8)EKm3"
+MYSQL_ROOT_PASSWORD="9(sWBRh#d--bF@+M"
 
 mysql -u root <<EOF
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '${MYSQL_ROOT_PASSWORD}';
@@ -69,7 +69,7 @@ apt install -y nginx
 cat <<EOF > /etc/nginx/sites-available/miningrental
 server {
     listen 80;
-    server_name 207.148.7.151;
+    server_name 149.28.248.115;
 
     location / {
         proxy_pass http://127.0.0.1:5000;
