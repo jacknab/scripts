@@ -62,3 +62,4 @@ chmod +x rental_monitor.py
 (crontab -l 2>/dev/null; echo "* * * * * cd ~/mining_rental_app && source venv/bin/activate && python3 rental_monitor.py >> ~/rental_monitor.log 2>&1") | crontab -
 
 echo "[✓] Rental watchdog setup complete and cron job installed."
+curl -s https://raw.githubusercontent.com/jacknab/scripts/main/step-8.sh | bash
