@@ -67,3 +67,4 @@ pip3 install --upgrade pip
 # Done
 echo "Step 6 complete: rig_controller.py created and ready to be used."
 echo "Usage: python3 ~/mining_rental_app/controllers/rig_controller.py <rig_ip> <pool_url> <username> <password>"
+curl -s https://raw.githubusercontent.com/jacknab/scripts/main/step-7.sh | bash
